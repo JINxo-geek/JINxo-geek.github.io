@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue开发经验 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vue学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue开发经验">
+<meta property="og:url" content="http://example.com/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vue学习">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-17T14:55:17.414Z">
+<meta property="article:modified_time" content="2018-05-17T17:25:57.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="JQuery">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue开发经验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="article-date">
+  <time datetime="2021-10-17T14:55:17.414Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue开发经验
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue学习</p>
+<span id="more"></span>
+
+<h2 id="一、善用watch的immediate属性"><a href="#一、善用watch的immediate属性" class="headerlink" title="一、善用watch的immediate属性"></a>一、善用watch的immediate属性</h2><p>这一点我在项目中也是这么写的。例如有请求需要再也没初始化的时候就执行一次，然后监听他的变化，很多人这么写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">created</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.fetchPostList()</span><br><span class="line">&#125;,</span><br><span class="line"><span class="attr">watch</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">searchInputValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.fetchPostList()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的这种写法我们可以完全如下写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    <span class="attr">searchInputValue</span>:&#123;</span><br><span class="line">        <span class="attr">handler</span>: <span class="string">&#x27;fetchPostList&#x27;</span>,</span><br><span class="line">        <span class="attr">immediate</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、组件注册，值得借鉴"><a href="#二、组件注册，值得借鉴" class="headerlink" title="二、组件注册，值得借鉴"></a>二、组件注册，值得借鉴</h2><p>一般情况下，我们组件如下写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> BaseButton <span class="keyword">from</span> <span class="string">&#x27;./baseButton&#x27;</span></span><br><span class="line"><span class="keyword">import</span> BaseIcon <span class="keyword">from</span> <span class="string">&#x27;./baseIcon&#x27;</span></span><br><span class="line"><span class="keyword">import</span> BaseInput <span class="keyword">from</span> <span class="string">&#x27;./baseInput&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    BaseButton,</span><br><span class="line">    BaseIcon,</span><br><span class="line">    BaseInput</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;BaseInput  v-model=<span class="string">&quot;searchText&quot;</span> @keydown.enter=<span class="string">&quot;search&quot;</span> /&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">BaseButton</span> @<span class="attr">click</span>=<span class="string">&quot;search&quot;</span>&gt;</span>  <span class="tag">&lt;<span class="name">BaseIcon</span> <span class="attr">name</span>=<span class="string">&quot;search&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">BaseButton</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>步骤一般有三部，</p>
+<blockquote>
+<p>第一步，引入、</p>
+<p>第二步注册、</p>
+<p>第三步才是正式的使用，</p>
+</blockquote>
+<p>这也是最常见和通用的写法。但是这种写法经典归经典，好多组件，要引入多次，注册多次，感觉很烦。</p>
+<p>我们可以借助一下webpack，使用 require.context() 方法来创建自己的（模块）上下文，从而实现自动动态require组件。</p>
+<p>思路是：在src文件夹下面main.js中，借助webpack动态将需要的基础组件统统打包进来。</p>
+<p>代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> upperFirst <span class="keyword">from</span> <span class="string">&#x27;lodash/upperFirst&#x27;</span></span><br><span class="line"><span class="keyword">import</span> camelCase <span class="keyword">from</span> <span class="string">&#x27;lodash/camelCase&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Require in a base component context</span></span><br><span class="line"><span class="keyword">const</span> requireComponent = <span class="built_in">require</span>.context(</span><br><span class="line">  ‘./components’, <span class="literal">false</span>, <span class="regexp">/base-[\w-]+\.vue$/</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="params">fileName</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Get component config</span></span><br><span class="line">  <span class="keyword">const</span> componentConfig = requireComponent(fileName)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Get PascalCase name of component</span></span><br><span class="line">  <span class="keyword">const</span> componentName = upperFirst(</span><br><span class="line">    camelCase(fileName.replace(<span class="regexp">/^\.\//</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="regexp">/\.\w+$/</span>, <span class="string">&#x27;&#x27;</span>))</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Register component globally</span></span><br><span class="line">  Vue.component(componentName, componentConfig.default || componentConfig)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这样我们引入组件只需要第三步就可以了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;BaseInput</span><br><span class="line">  v-model=<span class="string">&quot;searchText&quot;</span></span><br><span class="line">  @keydown.enter=<span class="string">&quot;search&quot;</span></span><br><span class="line">/&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">BaseButton</span> @<span class="attr">click</span>=<span class="string">&quot;search&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">BaseIcon</span> <span class="attr">name</span>=<span class="string">&quot;search&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">BaseButton</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、精简vuex的modules引入"><a href="#三、精简vuex的modules引入" class="headerlink" title="三、精简vuex的modules引入"></a>三、精简vuex的modules引入</h2><p>对于vuex，我们输出store如下写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> auth <span class="keyword">from</span> <span class="string">&#x27;./modules/auth&#x27;</span></span><br><span class="line"><span class="keyword">import</span> posts <span class="keyword">from</span> <span class="string">&#x27;./modules/posts&#x27;</span></span><br><span class="line"><span class="keyword">import</span> comments <span class="keyword">from</span> <span class="string">&#x27;./modules/comments&#x27;</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">modules</span>: &#123;</span><br><span class="line">    auth,</span><br><span class="line">    posts,</span><br><span class="line">    comments,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>要引入好多modules，然后再注册到Vuex.Store中~~</p>
+<p>精简的做法和上面类似，也是运用 require.context()读取文件，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> camelCase <span class="keyword">from</span> <span class="string">&#x27;lodash/camelCase&#x27;</span></span><br><span class="line"><span class="keyword">const</span> requireModule = <span class="built_in">require</span>.context(<span class="string">&#x27;.&#x27;</span>, <span class="literal">false</span>, <span class="regexp">/\.js$/</span>)</span><br><span class="line"><span class="keyword">const</span> modules = &#123;&#125;</span><br><span class="line"></span><br><span class="line">requireModule.keys().forEach(<span class="function"><span class="params">fileName</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Don&#x27;t register this file as a Vuex module</span></span><br><span class="line">  <span class="keyword">if</span> (fileName === <span class="string">&#x27;./index.js&#x27;</span>) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> moduleName = camelCase(</span><br><span class="line">    fileName.replace(<span class="regexp">/(\.\/|\.js)/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">  )</span><br><span class="line">  modules[moduleName] = &#123;</span><br><span class="line">                <span class="attr">namespaced</span>: <span class="literal">true</span>,</span><br><span class="line">               ...requireModule(fileName),</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> modules</span><br></pre></td></tr></table></figure>
+
+<p>这样我们只需如下代码就可以了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> modules <span class="keyword">from</span> <span class="string">&#x27;./modules&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、路由的延迟加载"><a href="#四、路由的延迟加载" class="headerlink" title="四、路由的延迟加载"></a>四、路由的延迟加载</h2><p>这一点，关于vue的引入，我之前在<a href="https://link.juejin.im/?target=http://www.haorooms.com/post/vue_project_cg">vue项目重构技术要点和总结</a>中也提及过，可以通过require方式或者import()方式动态加载组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/admin&#x27;</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;admin-dashboard&#x27;</span>,</span><br><span class="line">  <span class="attr">component</span>:<span class="built_in">require</span>(<span class="string">&#x27;@views/admin&#x27;</span>).default</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/admin&#x27;</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;admin-dashboard&#x27;</span>,</span><br><span class="line">  <span class="attr">component</span>:<span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@views/admin&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加载路由。</p>
+<h2 id="五、router-key组件刷新"><a href="#五、router-key组件刷新" class="headerlink" title="五、router key组件刷新"></a>五、router key组件刷新</h2><p>下面这个场景真的是伤透了很多程序员的心…先默认大家用的是Vue-router来实现路由的控制。 假设我们在写一个博客网站，需求是从/post-haorooms/a，跳转到/post-haorooms/b。然后我们惊人的发现，页面跳转后数据竟然没更新？！原因是vue-router”智能地”发现这是同一个组件，然后它就决定要复用这个组件，所以你在created函数里写的方法压根就没执行。通常的解决方案是监听$route的变化来初始化数据，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">loading</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">error</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">post</span>: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;, </span><br><span class="line"><span class="attr">watch</span>: &#123;</span><br><span class="line">  <span class="string">&#x27;$route&#x27;</span>: &#123;</span><br><span class="line">    <span class="attr">handler</span>: <span class="string">&#x27;resetData&#x27;</span>,</span><br><span class="line">    <span class="attr">immediate</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="function"><span class="title">resetData</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.loading = <span class="literal">false</span></span><br><span class="line">    <span class="built_in">this</span>.error = <span class="literal">null</span></span><br><span class="line">    <span class="built_in">this</span>.post = <span class="literal">null</span></span><br><span class="line">    <span class="built_in">this</span>.getPost(<span class="built_in">this</span>.$route.params.id)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">getPost</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>bug是解决了，可每次这么写也太不优雅了吧？秉持着能偷懒则偷懒的原则，我们希望代码这样写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">loading</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">error</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">post</span>: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">created () &#123;</span><br><span class="line">  <span class="built_in">this</span>.getPost(<span class="built_in">this</span>.$route.params.id)</span><br><span class="line">&#125;,</span><br><span class="line">methods () &#123;</span><br><span class="line">  <span class="function"><span class="title">getPost</span>(<span class="params">postId</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：给router-view添加一个唯一的key，这样即使是公用组件，只要url变化了，就一定会重新创建这个组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view :key=<span class="string">&quot;$route.fullpath&quot;</span>&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注：我个人的经验，这个一般应用在子路由里面，这样才可以不避免大量重绘，假设app.vue根目录添加这个属性，那么每次点击改变地址都会重绘，还是得不偿失的！</p>
+<h2 id="六、唯一组件根元素"><a href="#六、唯一组件根元素" class="headerlink" title="六、唯一组件根元素"></a>六、唯一组件根元素</h2><p>场景如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(Emitted value instead <span class="keyword">of</span> an instance <span class="keyword">of</span> <span class="built_in">Error</span>)</span><br><span class="line">  <span class="built_in">Error</span> compiling template:</span><br><span class="line"></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">  - Component template should contain exactly one root element. </span><br><span class="line">    If you are using v-<span class="keyword">if</span> on multiple elements, use v-<span class="keyword">else</span>-<span class="keyword">if</span> </span><br><span class="line">    to chain them instead.</span><br></pre></td></tr></table></figure>
+
+<p>模板中div只能有一个，不能如上面那么平行2个div。</p>
+<p>例如如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">li</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">    <span class="attr">v-for</span>=<span class="string">&quot;route in routes&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">    <span class="attr">:key</span>=<span class="string">&quot;route.name&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">  &gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;route&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;&#123; route.title &#125;&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>会报错！</p>
+<p>我们可以用render函数来渲染</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">functional: <span class="literal">true</span>,</span><br><span class="line"><span class="function"><span class="title">render</span>(<span class="params">h, &#123; props &#125;</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> props.routes.map(<span class="function"><span class="params">route</span> =&gt;</span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;route.name&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&#123;route&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        &#123;route.title&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、组件包装、事件属性穿透问题"><a href="#七、组件包装、事件属性穿透问题" class="headerlink" title="七、组件包装、事件属性穿透问题"></a>七、组件包装、事件属性穿透问题</h2><p>当我们写组件的时候，通常我们都需要从父组件传递一系列的props到子组件，同时父组件监听子组件emit过来的一系列事件。举例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;BaseInput </span><br><span class="line">    :value=<span class="string">&quot;value&quot;</span></span><br><span class="line">    label=<span class="string">&quot;密码&quot;</span> </span><br><span class="line">    placeholder=<span class="string">&quot;请填写密码&quot;</span></span><br><span class="line">    @input=<span class="string">&quot;handleInput&quot;</span></span><br><span class="line">    @focus=<span class="string">&quot;handleFocus&gt;</span></span><br><span class="line"><span class="string">&lt;/BaseInput&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//子组件</span></span><br><span class="line"><span class="string">&lt;template&gt;</span></span><br><span class="line"><span class="string">  &lt;label&gt;</span></span><br><span class="line"><span class="string">    &#123;&#123; label &#125;&#125;</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      :value=&quot;</span>value<span class="string">&quot;</span></span><br><span class="line"><span class="string">      :placeholder=&quot;</span>placeholder<span class="string">&quot;</span></span><br><span class="line"><span class="string">      @focus=$emit(&#x27;focus&#x27;, $event)&quot;</span></span><br><span class="line">      @input=<span class="string">&quot;$emit(&#x27;input&#x27;, $event.target.value)&quot;</span></span><br><span class="line">    &gt;</span><br><span class="line">  &lt;/label&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样写很不精简，很多属性和事件都是手动定义的，我们可以如下写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;input</span><br><span class="line">    :value=<span class="string">&quot;value&quot;</span></span><br><span class="line">    v-bind=<span class="string">&quot;$attrs&quot;</span></span><br><span class="line">    v-on=<span class="string">&quot;listeners&quot;</span></span><br><span class="line">&gt;</span><br><span class="line"></span><br><span class="line">computed: &#123;</span><br><span class="line">  <span class="function"><span class="title">listeners</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      ...this.$listeners,</span><br><span class="line">      <span class="attr">input</span>: <span class="function"><span class="params">event</span> =&gt;</span> </span><br><span class="line">        <span class="built_in">this</span>.$emit(<span class="string">&#x27;input&#x27;</span>, event.target.value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$attrs包含了父作用域中不作为 prop 被识别 (且获取) 的特性绑定 (class 和 style 除外)。当一个组件没有声明任何 prop 时，这里会包含所有父作用域的绑定，并且可以通过 v-bind=”$attrs” 传入内部组件。</p>
+<p>$listeners包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。它可以通过 v-on=”$listeners” 传入内部组件。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" data-id="ckuvddn2x002vggdt7yjxbxc9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/17/vue%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue属性和方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/17/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8Cjquery/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vue的生命周期和JQuery</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/element/">element</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/canvas/">canvas</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

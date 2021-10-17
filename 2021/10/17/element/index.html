@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>element | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="element">
+<meta property="og:type" content="article">
+<meta property="og:title" content="element">
+<meta property="og:url" content="http://example.com/2021/10/17/element/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="element">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-17T14:55:17.524Z">
+<meta property="article:modified_time" content="2018-05-21T08:02:33.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="element">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-element" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/17/element/" class="article-date">
+  <time datetime="2021-10-17T14:55:17.524Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      element
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>element</p>
+<span id="more"></span>
+
+<p>学习element先了解下自定义标签：<a target="_blank" rel="noopener" href="http://blog.bingo929.com/custom-elements-html-web-components.html">http://blog.bingo929.com/custom-elements-html-web-components.html</a></p>
+<p>EMMMMM,但是以vue的角度来理解，自定义标签就是组件，然后我们会发现一些自定义属性，那可能是自定义的局部指令（以v开头的），还有看到<code>:recentage</code> 类似冒号开头的，它是<code>v-bind:recentage</code> 的简写，为的是父组件传递属性给子组件用的。通常子组件的props声明这个属性。（父组件传递数据给子组件）。</p>
+<h1 id="完整引入"><a href="#完整引入" class="headerlink" title="完整引入"></a>完整引入</h1><p>在main.js中写入以下内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> ElementUI <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-ui/lib/theme-chalk/index.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(ElementUI);<span class="comment">//注册</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el：<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="attr">render</span>: <span class="function"><span class="params">h</span>=&gt;</span>h(App)</span><br><span class="line">&#125;);<span class="comment">//实例化根组件</span></span><br></pre></td></tr></table></figure>
+
+<p>关于Vue.use()详解:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/89a05706917a">https://www.jianshu.com/p/89a05706917a</a></p>
+<h4 id="按需引入"><a href="#按需引入" class="headerlink" title="按需引入"></a>按需引入</h4><p>借助 <a target="_blank" rel="noopener" href="https://github.com/QingWei-Li/babel-plugin-component">babel-plugin-component</a>，我们可以只引入需要的组件，以达到减小项目体积的目的。</p>
+<p>首先，安装 babel-plugin-component：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-plugin-component -D</span><br></pre></td></tr></table></figure>
+
+<p>然后，将<code> .babelrc</code> 修改为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;presets&quot;</span>: [[<span class="string">&quot;es2015&quot;</span>, &#123; <span class="attr">&quot;modules&quot;</span>: <span class="literal">false</span> &#125;]],</span><br><span class="line">  <span class="attr">&quot;plugins&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;component&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;libraryName&quot;</span>: <span class="string">&quot;element-ui&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;styleLibraryName&quot;</span>: <span class="string">&quot;theme-chalk&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，如果你只希望引入部分组件，比如 Button 和 Select，那么需要在 main.js 中写入以下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Button, Select &#125; <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line">Vue.component(Button.name, Button);</span><br><span class="line">Vue.component(Select.name, Select);</span><br><span class="line"><span class="comment">/* 或写为</span></span><br><span class="line"><span class="comment"> * Vue.use(Button)</span></span><br><span class="line"><span class="comment"> * Vue.use(Select)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="完整列表引入"><a href="#完整列表引入" class="headerlink" title="完整列表引入"></a>完整列表引入</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Pagination,</span><br><span class="line">  Dialog,</span><br><span class="line">  Autocomplete,</span><br><span class="line">  Dropdown,</span><br><span class="line">  DropdownMenu,</span><br><span class="line">  DropdownItem,</span><br><span class="line">  Menu,</span><br><span class="line">  Submenu,</span><br><span class="line">  MenuItem,</span><br><span class="line">  MenuItemGroup,</span><br><span class="line">  Input,</span><br><span class="line">  InputNumber,</span><br><span class="line">  Radio,</span><br><span class="line">  RadioGroup,</span><br><span class="line">  RadioButton,</span><br><span class="line">  Checkbox,</span><br><span class="line">  CheckboxButton,</span><br><span class="line">  CheckboxGroup,</span><br><span class="line">  Switch,</span><br><span class="line">  Select,</span><br><span class="line">  Option,</span><br><span class="line">  OptionGroup,</span><br><span class="line">  Button,</span><br><span class="line">  ButtonGroup,</span><br><span class="line">  Table,</span><br><span class="line">  TableColumn,</span><br><span class="line">  DatePicker,</span><br><span class="line">  TimeSelect,</span><br><span class="line">  TimePicker,</span><br><span class="line">  Popover,</span><br><span class="line">  Tooltip,</span><br><span class="line">  Breadcrumb,</span><br><span class="line">  BreadcrumbItem,</span><br><span class="line">  Form,</span><br><span class="line">  FormItem,</span><br><span class="line">  Tabs,</span><br><span class="line">  TabPane,</span><br><span class="line">  Tag,</span><br><span class="line">  Tree,</span><br><span class="line">  Alert,</span><br><span class="line">  Slider,</span><br><span class="line">  Icon,</span><br><span class="line">  Row,</span><br><span class="line">  Col,</span><br><span class="line">  Upload,</span><br><span class="line">  Progress,</span><br><span class="line">  Badge,</span><br><span class="line">  Card,</span><br><span class="line">  Rate,</span><br><span class="line">  Steps,</span><br><span class="line">  Step,</span><br><span class="line">  Carousel,</span><br><span class="line">  CarouselItem,</span><br><span class="line">  Collapse,</span><br><span class="line">  CollapseItem,</span><br><span class="line">  Cascader,</span><br><span class="line">  ColorPicker,</span><br><span class="line">  Transfer,</span><br><span class="line">  Container,</span><br><span class="line">  Header,</span><br><span class="line">  Aside,</span><br><span class="line">  Main,</span><br><span class="line">  Footer,</span><br><span class="line">  Loading,</span><br><span class="line">  MessageBox,</span><br><span class="line">  Message,</span><br><span class="line">  Notification</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(Pagination);</span><br><span class="line">Vue.use(Dialog);</span><br><span class="line">Vue.use(Autocomplete);</span><br><span class="line">Vue.use(Dropdown);</span><br><span class="line">Vue.use(DropdownMenu);</span><br><span class="line">Vue.use(DropdownItem);</span><br><span class="line">Vue.use(Menu);</span><br><span class="line">Vue.use(Submenu);</span><br><span class="line">Vue.use(MenuItem);</span><br><span class="line">Vue.use(MenuItemGroup);</span><br><span class="line">Vue.use(Input);</span><br><span class="line">Vue.use(InputNumber);</span><br><span class="line">Vue.use(Radio);</span><br><span class="line">Vue.use(RadioGroup);</span><br><span class="line">Vue.use(RadioButton);</span><br><span class="line">Vue.use(Checkbox);</span><br><span class="line">Vue.use(CheckboxButton);</span><br><span class="line">Vue.use(CheckboxGroup);</span><br><span class="line">Vue.use(Switch);</span><br><span class="line">Vue.use(Select);</span><br><span class="line">Vue.use(Option);</span><br><span class="line">Vue.use(OptionGroup);</span><br><span class="line">Vue.use(Button);</span><br><span class="line">Vue.use(ButtonGroup);</span><br><span class="line">Vue.use(Table);</span><br><span class="line">Vue.use(TableColumn);</span><br><span class="line">Vue.use(DatePicker);</span><br><span class="line">Vue.use(TimeSelect);</span><br><span class="line">Vue.use(TimePicker);</span><br><span class="line">Vue.use(Popover);</span><br><span class="line">Vue.use(Tooltip);</span><br><span class="line">Vue.use(Breadcrumb);</span><br><span class="line">Vue.use(BreadcrumbItem);</span><br><span class="line">Vue.use(Form);</span><br><span class="line">Vue.use(FormItem);</span><br><span class="line">Vue.use(Tabs);</span><br><span class="line">Vue.use(TabPane);</span><br><span class="line">Vue.use(Tag);</span><br><span class="line">Vue.use(Tree);</span><br><span class="line">Vue.use(Alert);</span><br><span class="line">Vue.use(Slider);</span><br><span class="line">Vue.use(Icon);</span><br><span class="line">Vue.use(Row);</span><br><span class="line">Vue.use(Col);</span><br><span class="line">Vue.use(Upload);</span><br><span class="line">Vue.use(Progress);</span><br><span class="line">Vue.use(Badge);</span><br><span class="line">Vue.use(Card);</span><br><span class="line">Vue.use(Rate);</span><br><span class="line">Vue.use(Steps);</span><br><span class="line">Vue.use(Step);</span><br><span class="line">Vue.use(Carousel);</span><br><span class="line">Vue.use(CarouselItem);</span><br><span class="line">Vue.use(Collapse);</span><br><span class="line">Vue.use(CollapseItem);</span><br><span class="line">Vue.use(Cascader);</span><br><span class="line">Vue.use(ColorPicker);</span><br><span class="line">Vue.use(Container);</span><br><span class="line">Vue.use(Header);</span><br><span class="line">Vue.use(Aside);</span><br><span class="line">Vue.use(Main);</span><br><span class="line">Vue.use(Footer);</span><br><span class="line"></span><br><span class="line">Vue.use(Loading.directive);</span><br><span class="line"></span><br><span class="line">Vue.prototype.$loading = Loading.service;</span><br><span class="line">Vue.prototype.$msgbox = MessageBox;</span><br><span class="line">Vue.prototype.$alert = MessageBox.alert;</span><br><span class="line">Vue.prototype.$confirm = MessageBox.confirm;</span><br><span class="line">Vue.prototype.$prompt = MessageBox.prompt;</span><br><span class="line">Vue.prototype.$notify = Notification;</span><br><span class="line">Vue.prototype.$message = Message;</span><br></pre></td></tr></table></figure>
+
+<h1 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h1><p>当引入Element时，可以传入一个全局配置对象，该对象目前仅支持<code>size</code> 字段，用于改变组件的默认尺寸。</p>
+<p>完整引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Element <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span>;</span><br><span class="line">Vue.use(Element,&#123;<span class="attr">size</span>:<span class="string">&#x27;small&#x27;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>按需引入Element:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Button&#125; <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span>;</span><br><span class="line"></span><br><span class="line">Vue.prototype.$ELEMENT = &#123;<span class="attr">size</span>:<span class="string">&#x27;small&#x27;</span>&#125;;</span><br><span class="line">Vue.use(Button);</span><br></pre></td></tr></table></figure>
+
+<p>按照以上设置，项目中所有拥有<code>size</code> 属性的组件的默认尺寸均为<code>small</code>.</p>
+<p>如果想要服务端渲染，可以使用NUXT。</p>
+<p>如果想国际化多语言，参考：<a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/i18n">http://element-cn.eleme.io/#/zh-CN/component/i18n</a></p>
+<h1 id="自定义主题"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题</h1><p>Element 默认提供一套主题，CSS 命名采用 BEM 的风格，方便使用者覆盖样式。提供了三种方法，可以进行不同程度的样式自定义。</p>
+<h3 id="仅替换主题色"><a href="#仅替换主题色" class="headerlink" title="仅替换主题色"></a>仅替换主题色</h3><p>如果仅希望更换 Element 的主题色，推荐使用<a target="_blank" rel="noopener" href="https://elementui.github.io/theme-chalk-preview">在线主题生成工具</a>。Element 默认的主题色是鲜艳、友好的蓝色。通过替换主题色，能够让 Element 的视觉更加符合具体项目的定位。</p>
+<p>使用上述工具，可以很方便地实时预览主题色改变之后的视觉，同时它还可以基于新的主题色生成完整的样式文件包，供直接下载使用（关于如何使用下载的主题包，请参考本节「引入自定义主题」和「搭配插件按需引入组件主题」部分）。</p>
+<h1 id="在项目中改变SCSS变量"><a href="#在项目中改变SCSS变量" class="headerlink" title="在项目中改变SCSS变量"></a>在项目中改变SCSS变量</h1><p>Element 的 theme-chalk 使用 SCSS 编写，如果你的项目也使用了 SCSS，那么可以直接在项目中改变 Element 的样式变量。新建一个样式文件，例如 <code>element-variables.scss</code>，写入以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/* 改变主题色变量 */</span><br><span class="line">$--color-primary: teal;</span><br><span class="line"></span><br><span class="line">/* 改变 icon 字体路径变量，必需 */</span><br><span class="line">$--font-path: &#x27;~element-ui/lib/theme-chalk/fonts&#x27;;</span><br><span class="line"></span><br><span class="line">@import &quot;~element-ui/packages/theme-chalk/src/index&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>之后，在项目的入口文件中，直接引入以上样式文件即可（无需引入 Element 编译好的 CSS 文件）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line">import Element from &#x27;element-ui&#x27;</span><br><span class="line">import &#x27;./element-variables.scss&#x27;</span><br><span class="line"></span><br><span class="line">Vue.use(Element)</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，覆盖字体路径变量是必需的，将其赋值为 Element 中 icon 图标所在的相对路径即可。命令行主题工具</p>
+<p>如果你的项目没有使用 SCSS，那么可以使用命令行主题工具进行深层次的主题定制：</p>
+<h4 id="安装工具"><a href="#安装工具" class="headerlink" title="安装工具"></a><strong>安装工具</strong></h4><p>首先安装「主题生成工具」，可以全局安装或者安装在当前项目下，推荐安装在项目里，方便别人 clone 项目时能直接安装依赖并启动，这里以全局安装做演示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i element-theme -g</span><br></pre></td></tr></table></figure>
+
+<p>安装白垩主题，可以从 npm 安装或者从 GitHub 拉取最新代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 从 npm</span><br><span class="line">npm i element-theme-chalk -D</span><br><span class="line"></span><br><span class="line"># 从 GitHub</span><br><span class="line">npm i https://github.com/ElementUI/theme-chalk -D</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化变量文件"><a href="#初始化变量文件" class="headerlink" title="初始化变量文件"></a><strong>初始化变量文件</strong></h4><p>主题生成工具安装成功后，如果全局安装可以在命令行里通过 <code>et</code> 调用工具，如果安装在当前目录下，需要通过 <code>node_modules/.bin/et</code> 访问到命令。执行 <code>-i</code> 初始化变量文件。默认输出到 <code>element-variables.scss</code>，当然你可以传参数指定文件输出目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">et -i [可以自定义变量文件]</span><br><span class="line"></span><br><span class="line">&gt; ✔ Generator variables file</span><br></pre></td></tr></table></figure>
+
+<p>如果使用默认配置，执行后当前目录会有一个 <code>element-variables.scss</code> 文件。内部包含了主题所用到的所有变量，它们使用 SCSS 的格式定义。大致结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$--color-primary: #409EFF !default;</span><br><span class="line">$--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default; /* 53a8ff */</span><br><span class="line">$--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default; /* 66b1ff */</span><br><span class="line">$--color-primary-light-3: mix($--color-white, $--color-primary, 30%) !default; /* 79bbff */</span><br><span class="line">$--color-primary-light-4: mix($--color-white, $--color-primary, 40%) !default; /* 8cc5ff */</span><br><span class="line">$--color-primary-light-5: mix($--color-white, $--color-primary, 50%) !default; /* a0cfff */</span><br><span class="line">$--color-primary-light-6: mix($--color-white, $--color-primary, 60%) !default; /* b3d8ff */</span><br><span class="line">$--color-primary-light-7: mix($--color-white, $--color-primary, 70%) !default; /* c6e2ff */</span><br><span class="line">$--color-primary-light-8: mix($--color-white, $--color-primary, 80%) !default; /* d9ecff */</span><br><span class="line">$--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default; /* ecf5ff */</span><br><span class="line"></span><br><span class="line">$--color-success: #67c23a !default;</span><br><span class="line">$--color-warning: #e6a23c !default;</span><br><span class="line">$--color-danger: #f56c6c !default;</span><br><span class="line">$--color-info: #909399 !default;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改变量"><a href="#修改变量" class="headerlink" title="修改变量"></a><strong>修改变量</strong></h4><p>直接编辑 <code>element-variables.scss</code> 文件，例如修改主题色为红色。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$--color-primary: red;</span><br></pre></td></tr></table></figure>
+
+<h4 id="编译主题"><a href="#编译主题" class="headerlink" title="编译主题"></a><strong>编译主题</strong></h4><p>保存文件后，到命令行里执行 <code>et</code> 编译主题，如果你想启用 <code>watch</code> 模式，实时编译主题，增加 <code>-w</code> 参数；如果你在初始化时指定了自定义变量文件，则需要增加 <code>-c</code> 参数，并带上你的变量文件名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">et</span><br><span class="line"></span><br><span class="line">&gt; ✔ build theme font</span><br><span class="line">&gt; ✔ build element theme</span><br></pre></td></tr></table></figure>
+
+<h4 id="引入自定义主题"><a href="#引入自定义主题" class="headerlink" title="引入自定义主题"></a><strong>引入自定义主题</strong></h4><p>默认情况下编译的主题目录是放在 <code>./theme</code> 下，你可以通过 <code>-o</code> 参数指定打包目录。像引入默认主题一样，在代码里直接引用 <code>theme/index.css</code> 文件即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#x27;../theme/index.css&#x27;</span><br><span class="line">import ElementUI from &#x27;element-ui&#x27;</span><br><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">Vue.use(ElementUI)</span><br></pre></td></tr></table></figure>
+
+<h4 id="搭配插件按需引入组件主题"><a href="#搭配插件按需引入组件主题" class="headerlink" title="搭配插件按需引入组件主题"></a><strong>搭配插件按需引入组件主题</strong></h4><p>如果是搭配 <code>babel-plugin-component</code> 一起使用，只需要修改 <code>.babelrc</code> 的配置，指定 <code>styleLibraryName</code> 路径为自定义主题相对于 <code>.babelrc</code> 的路径，注意要加 <code>~</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;plugins&quot;: [[&quot;component&quot;, [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;libraryName&quot;: &quot;element-ui&quot;,</span><br><span class="line">      &quot;styleLibraryName&quot;: &quot;~theme&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果不清楚 <code>babel-plugin-component</code> 是什么，请阅读 <a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/quickstart">快速上手</a> 一节。更多 <code>element-theme</code> 用法请参考<a target="_blank" rel="noopener" href="https://github.com/ElementUI/element-theme">项目仓库</a>。</p>
+<h1 id="内置过度动画"><a href="#内置过度动画" class="headerlink" title="内置过度动画"></a>内置过度动画</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">&quot;el-fade-in-linear&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">&quot;el-fade-in-linear&quot;</span>&gt;</span></span><br><span class="line">          </span><br><span class="line">        <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>和CSS过渡动画一样，在元素发生变化的时候会生效。上面两个用作淡入淡出。</p>
+<p> <code>el-zoom-in-center</code>，<code>el-zoom-in-top</code> 和 <code>el-zoom-in-bottom</code> 这三种效果是缩放。</p>
+<p>使用 <code>el-collapse-transition</code> 组件实现折叠展开效果。 </p>
+<p>同样这些效果能按需引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fade/zoom 等</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-ui/lib/theme-chalk/base.css&#x27;</span>;</span><br><span class="line"><span class="comment">// collapse 展开折叠</span></span><br><span class="line"><span class="keyword">import</span> CollapseTransition <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/transitions/collapse-transition&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.component(CollapseTransition.name, CollapseTransition)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Layout布局"><a href="#Layout布局" class="headerlink" title="Layout布局"></a>Layout布局</h1><p>这里先好好掌握html的自定义标签</p>
+<p>再看看布局<a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/layout">http://element-cn.eleme.io/#/zh-CN/component/layout</a></p>
+<h1 id="基于断点的隐藏类"><a href="#基于断点的隐藏类" class="headerlink" title="基于断点的隐藏类"></a>基于断点的隐藏类</h1><p>Element 额外提供了一系列类名，用于在某些条件下隐藏元素。这些类名可以添加在任何 DOM 元素或自定义组件上。如果需要，请自行引入以下文件： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-ui/lib/theme-chalk/display.css&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>hidden-xs-only</code> - 当视口在 <code>xs</code> 尺寸时隐藏</li>
+<li><code>hidden-sm-only</code> - 当视口在 <code>sm</code> 尺寸时隐藏</li>
+<li><code>hidden-sm-and-down</code> - 当视口在 <code>sm</code> 及以下尺寸时隐藏</li>
+<li><code>hidden-sm-and-up</code> - 当视口在 <code>sm</code> 及以上尺寸时隐藏</li>
+<li><code>hidden-md-only</code> - 当视口在 <code>md</code> 尺寸时隐藏</li>
+<li><code>hidden-md-and-down</code> - 当视口在 <code>md</code> 及以下尺寸时隐藏</li>
+<li><code>hidden-md-and-up</code> - 当视口在 <code>md</code> 及以上尺寸时隐藏</li>
+<li><code>hidden-lg-only</code> - 当视口在 <code>lg</code> 尺寸时隐藏</li>
+<li><code>hidden-lg-and-down</code> - 当视口在 <code>lg</code> 及以下尺寸时隐藏</li>
+<li><code>hidden-lg-and-up</code> - 当视口在 <code>lg</code> 及以上尺寸时隐藏</li>
+<li><code>hidden-xl-only</code> - 当视口在 <code>xl</code> 尺寸时隐藏</li>
+</ul>
+<h1 id="Row-Attributes"><a href="#Row-Attributes" class="headerlink" title="Row Attributes"></a>Row Attributes</h1><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>可选值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gutter</td>
+<td>栅格间隔</td>
+<td>number</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>type</td>
+<td>布局模式，可选 flex，现代浏览器下有效</td>
+<td>string</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>justify</td>
+<td>flex 布局下的水平排列方式</td>
+<td>string</td>
+<td>start/end/center/space-around/space-between</td>
+<td>start</td>
+</tr>
+<tr>
+<td>align</td>
+<td>flex 布局下的垂直排列方式</td>
+<td>string</td>
+<td>top/middle/bottom</td>
+<td>top</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>自定义元素标签</td>
+<td>string</td>
+<td>*</td>
+<td>div</td>
+</tr>
+</tbody></table>
+<h1 id="Col-Attributes"><a href="#Col-Attributes" class="headerlink" title="Col Attributes"></a>Col Attributes</h1><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>可选值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>span</td>
+<td>栅格占据的列数</td>
+<td>number</td>
+<td>—</td>
+<td>24</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>栅格左侧的间隔格数</td>
+<td>number</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>push</td>
+<td>栅格向右移动格数</td>
+<td>number</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>pull</td>
+<td>栅格向左移动格数</td>
+<td>number</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>xs</td>
+<td><code>&lt;768px</code> 响应式栅格数或者栅格属性对象</td>
+<td>number/object (例如： {span: 4, offset: 4})</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>sm</td>
+<td><code>≥768px</code> 响应式栅格数或者栅格属性对象</td>
+<td>number/object (例如： {span: 4, offset: 4})</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>md</td>
+<td><code>≥992px</code> 响应式栅格数或者栅格属性对象</td>
+<td>number/object (例如： {span: 4, offset: 4})</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>lg</td>
+<td><code>≥1200px</code> 响应式栅格数或者栅格属性对象</td>
+<td>number/object (例如： {span: 4, offset: 4})</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>xl</td>
+<td><code>≥1920px</code> 响应式栅格数或者栅格属性对象</td>
+<td>number/object (例如： {span: 4, offset: 4})</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>自定义元素标签</td>
+<td>string</td>
+<td>*</td>
+<td>div</td>
+</tr>
+</tbody></table>
+<h1 id="Container-布局容器"><a href="#Container-布局容器" class="headerlink" title="Container 布局容器"></a>Container 布局容器</h1><p>用于布局的容器组件，方便快速搭建页面的基本结构：</p>
+<p><code>&lt;el-container&gt;</code>：外层容器。当子元素中包含 <code>&lt;el-header&gt;</code> 或 <code>&lt;el-footer&gt;</code> 时，全部子元素会垂直上下排列，否则会水平左右排列。</p>
+<p><code>&lt;el-header&gt;</code>：顶栏容器。</p>
+<p><code>&lt;el-aside&gt;</code>：侧边栏容器。</p>
+<p><code>&lt;el-main&gt;</code>：主要区域容器。</p>
+<p><code>&lt;el-footer&gt;</code>：底栏容器。</p>
+<blockquote>
+<p>以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。此外，<code>&lt;el-container&gt;</code> 的子元素只能是后四者，后四者的父元素也只能是 <code>&lt;el-container&gt;</code>。 </p>
+</blockquote>
+<p>详情：<a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/container">http://element-cn.eleme.io/#/zh-CN/component/container</a></p>
+<h1 id="Color色彩"><a href="#Color色彩" class="headerlink" title="Color色彩"></a>Color色彩</h1><p>Element 为了避免视觉传达差异，使用一套特定的调色板来规定颜色，为你所搭建的产品提供一致的外观视觉感受。 </p>
+<h1 id="Typography-字体"><a href="#Typography-字体" class="headerlink" title="Typography 字体"></a>Typography 字体</h1><p><a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/typography">http://element-cn.eleme.io/#/zh-CN/component/typography</a></p>
+<h1 id="Icon图标"><a href="#Icon图标" class="headerlink" title="Icon图标"></a>Icon图标</h1><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>直接通过设置类名为 <code>el-icon-iconName</code> 来使用即可。</p>
+<p><a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/icon">http://element-cn.eleme.io/#/zh-CN/component/icon</a></p>
+<h1 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h1><p>你可以使用<code>disabled</code>属性来定义按钮是否可用，它接受一个<code>Boolean</code>值。 </p>
+<p><a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/button">http://element-cn.eleme.io/#/zh-CN/component/button</a></p>
+<h1 id="单选框"><a href="#单选框" class="headerlink" title="单选框"></a>单选框</h1><p><a target="_blank" rel="noopener" href="http://element-cn.eleme.io/#/zh-CN/component/radio">http://element-cn.eleme.io/#/zh-CN/component/radio</a></p>
+<h1 id="Checkbox多选框"><a href="#Checkbox多选框" class="headerlink" title="Checkbox多选框"></a>Checkbox多选框</h1><p>注意label属性的提交</p>
+<h1 id="Input输入框"><a href="#Input输入框" class="headerlink" title="Input输入框"></a>Input输入框</h1><p>通过鼠标或键盘输入字符 </p>
+<p>可以带icon，</p>
+<p>带输入建议的</p>
+<p>从服务端搜索数据 </p>
+<p>有Input Event和Slot</p>
+<h1 id="InputNumber-计数器"><a href="#InputNumber-计数器" class="headerlink" title="InputNumber 计数器"></a>InputNumber 计数器</h1><p>仅允许输入标准的数字值，可定义范围 </p>
+<h1 id="Select选择器"><a href="#Select选择器" class="headerlink" title="Select选择器"></a>Select选择器</h1><h1 id="Cascader级联选择器"><a href="#Cascader级联选择器" class="headerlink" title="Cascader级联选择器"></a>Cascader级联选择器</h1><p>当一个数据集合有清晰的层级结构时，可通过级联选择器逐级查看并选择。 </p>
+<h1 id="Switch-开关"><a href="#Switch-开关" class="headerlink" title="Switch 开关"></a>Switch 开关</h1><h1 id="Slider-滑块"><a href="#Slider-滑块" class="headerlink" title="Slider 滑块"></a>Slider 滑块</h1><p>通过拖动滑块在一个固定区间内进行选择 </p>
+<h1 id="TimePicker时间选择器"><a href="#TimePicker时间选择器" class="headerlink" title="TimePicker时间选择器"></a>TimePicker时间选择器</h1><p>用于选择或输入日期 </p>
+<h1 id="DatePicker-日期选择器"><a href="#DatePicker-日期选择器" class="headerlink" title="DatePicker 日期选择器"></a>DatePicker 日期选择器</h1><p>用于选择或输入日期 </p>
+<h1 id="DateTimePicker日期时间选择器"><a href="#DateTimePicker日期时间选择器" class="headerlink" title="DateTimePicker日期时间选择器"></a>DateTimePicker日期时间选择器</h1><h1 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h1><h1 id="评分"><a href="#评分" class="headerlink" title="评分"></a>评分</h1><h1 id="颜色选择器"><a href="#颜色选择器" class="headerlink" title="颜色选择器"></a>颜色选择器</h1><h1 id="Transfer-穿梭框"><a href="#Transfer-穿梭框" class="headerlink" title="Transfer 穿梭框"></a>Transfer 穿梭框</h1><h1 id="Form表单"><a href="#Form表单" class="headerlink" title="Form表单"></a>Form表单</h1><p>由输入框、选择器、单选框、多选框等控件组成，用以收集、校验、提交数据 </p>
+<h1 id="Table表格"><a href="#Table表格" class="headerlink" title="Table表格"></a>Table表格</h1><p>用于展示多条结构类似的数据，可对数据进行排序、筛选、对比或其他自定义操作。</p>
+<h1 id="Tag标签"><a href="#Tag标签" class="headerlink" title="Tag标签"></a>Tag标签</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-tag type=<span class="string">&quot;success&quot;</span>&gt;标签二&lt;/el-tag&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Progress进度条"><a href="#Progress进度条" class="headerlink" title="Progress进度条"></a>Progress进度条</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-progress :percentage=<span class="string">&quot;50&quot;</span> status=<span class="string">&quot;exception&quot;</span>&gt;&lt;/el-progress&gt;</span><br></pre></td></tr></table></figure>
+
+<p><mark>我：</mark> :  看到<code>:recentage</code> 时候突然懵逼了，没反应过来它是什么。<br>它是<code>v-bind:recentage</code> 的简写，为的是父组件传递属性给子组件用的。通常子组件的props声明这个属性。</p>
+<h1 id="树型控件"><a href="#树型控件" class="headerlink" title="树型控件"></a>树型控件</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-tree :data=<span class="string">&quot;data&quot;</span> :props=<span class="string">&quot;defaultProps&quot;</span> @node-click=<span class="string">&quot;handleNodeClick&quot;</span>&gt;&lt;/el-tree&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Pagination-分页"><a href="#Pagination-分页" class="headerlink" title="Pagination 分页"></a>Pagination 分页</h1><p>设置<code>layout</code>，表示需要显示的内容，用逗号分隔，布局元素会依次显示。<code>prev</code>表示上一页，<code>next</code>为下一页，<code>pager</code>表示页码列表，除此以外还提供了<code>jumper</code>和<code>total</code>，<code>size</code>和特殊的布局符号<code>-&gt;</code>，<code>-&gt;</code>后的元素会靠右显示，<code>jumper</code>表示跳页元素，<code>total</code>表示显示页码总数，<code>size</code>用于设置每页显示的页码数量。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;block&quot;</span>&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;demonstration&quot;</span>&gt;</span>页数较少时的效果<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">el-pagination</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">    <span class="attr">layout</span>=<span class="string">&quot;prev, pager, next&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">    <span class="attr">:total</span>=<span class="string">&quot;50&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">el-pagination</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;block&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;demonstration&quot;</span>&gt;</span>大于 7 页时的效果<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">el-pagination</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">    <span class="attr">layout</span>=<span class="string">&quot;prev, pager, next&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">    <span class="attr">:total</span>=<span class="string">&quot;1000&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">el-pagination</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Badge标记"><a href="#Badge标记" class="headerlink" title="Badge标记"></a>Badge标记</h1><p>出现在按钮、图标旁的数字或状态标记。 </p>
+<p>定义<code>value</code>属性，它接受<code>Number</code>或者<code>String</code>。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-badge</span> <span class="attr">:value</span>=<span class="string">&quot;12&quot;</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">size</span>=<span class="string">&quot;small&quot;</span>&gt;</span>评论<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-badge</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css"><span class="selector-class">.item</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">margin-right</span>: <span class="number">40px</span>;</span></span><br><span class="line"><span class="css">&#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/element/" data-id="ckuvddn1v001fggdtgzj0dof5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/17/es6%E4%BA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          解构赋值
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/17/Electron/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Electron搭建node桌面应用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/element/">element</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/canvas/">canvas</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

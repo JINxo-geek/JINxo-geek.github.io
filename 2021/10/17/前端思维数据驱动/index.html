@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据驱动 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ES6学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据驱动">
+<meta property="og:url" content="http://example.com/2021/10/17/%E5%89%8D%E7%AB%AF%E6%80%9D%E7%BB%B4%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ES6学习">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/10/17/%E5%89%8D%E7%AB%AF%E6%80%9D%E7%BB%B4%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8/[http://xxx.xxx/xxx.png">
+<meta property="article:published_time" content="2021-10-17T14:55:17.469Z">
+<meta property="article:modified_time" content="2018-05-16T14:31:37.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/10/17/%E5%89%8D%E7%AB%AF%E6%80%9D%E7%BB%B4%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8/[http://xxx.xxx/xxx.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-前端思维数据驱动" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/17/%E5%89%8D%E7%AB%AF%E6%80%9D%E7%BB%B4%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8/" class="article-date">
+  <time datetime="2021-10-17T14:55:17.469Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据驱动
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ES6学习</p>
+<span id="more"></span>
+
+<h1 id="从事件驱动到数据驱动的转变"><a href="#从事件驱动到数据驱动的转变" class="headerlink" title="从事件驱动到数据驱动的转变"></a>从事件驱动到数据驱动的转变</h1><p>在事件驱动的前端开发中，最常见的是就是提交一个表单，就要监听提交按钮事件，在触发点击事件后，从也面的DOM元素中收集数据，然后在做数据处理，最后调用接口提交。收集数据是个特别繁琐的事情，各种选择器各种变量。</p>
+<p>再比如说，在固定区域内，事件触发展示不同组件，那就要监听事件传递来的条件，来判断哪个组件要display:block，其他组件要display:none，甚至可能大量用到DOM操作，各种appendChild，insertBefore，removeChild。</p>
+<p>其他类似根据条件addClass, removeClass调整组件样式；通过getAttribute、dataset等等获取DOM绑定的数据；通过setAttribute、innerHtml等等直接修改DOM的操作也是数不胜数。</p>
+<p>个人感觉这种方式的好处就是直观，页面做任何改变全交由js处理，先干什么后干什么都由自己一手代码操控全场，有种掌控一切的感觉。</p>
+<p>但是，大型项目里，代码编写的成本和维护的成本都很高。对代码规范的要求高，对抽象的要求高，尤其是抽象程度，全赖个人编程水平，抽象程度低的话，冗长的代码根本不想多看一眼。这大概就是为啥项目里有一个代码写的烂的人在，代码就会越来越烂的原因。</p>
+<h4 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a>数据驱动</h4><p>网上已经很多关于数据驱动的文章了，但光看文章，体会远不如自己实践一遍来的印象深刻。在基于vue开发的新页面中，用js直接处理DOM的代码极少（刚开始上手的时候一般都会不太习惯数据驱动编程，写些操作DOM的代码，后来慢慢会替换掉的）。</p>
+<p>数据驱动的前提是事先将DOM与数据绑定，像vue这种就是依赖defineProperties, setter, getter将一个vue对象与一个DOM节点模板关联起来，这个DOM节点里所有子节点、所有节点属性，全都可以和vue对象中的data绑定，做到data中某个属性值变化时，相应DOM节点中对应的某个属性就变化。</p>
+<p>如此一来，关注点完全分离。分开设计页面DOM结构和数据结构，然后将DOM与数据结构做关联，之后所有的事件触发的都只是数据的变化，DOM会自动根据数据的变化做相应改变。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#example&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">currentView</span>: <span class="string">&#x27;home&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    home,</span><br><span class="line">    posts,</span><br><span class="line">    archive</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;component v-bind:is=<span class="string">&quot;currentView&quot;</span>&gt;</span><br><span class="line">  &lt;!-- 组件在 vm.currentview 变化时改变！ --&gt;</span><br><span class="line">&lt;/component&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>只需关心currentView的指向便可轻易切换组件，或者通过v-if或v-show来实现根据value的真假值来控制相应DOM节点是否显示；其他DOM属性变化都可以用v-bind与data做绑定，比如v-bind:class=”dataClass”，只要dataClass一变化，DOM的class就会改变。</p>
+<p>vue的这些动态绑定的功能很容易上手，相对上手比较慢的是vue提供的组件功能，涉及父子组件通讯，以及用vuex实现全局state管理等等，先掌握数据驱动的思想，再接触这些会容易得多。</p>
+<p>当然即使vue也会遇到不得不直接操作DOM的情况。记录一个目前遇到实际问题：</p>
+<p>有一个table组件，展示从后台传过来的数据。数据中会有”<a target="_blank" rel="noopener" href="http://xxx.xxx/xxx.png&quot;%E9%9C%80%E8%A6%81%E6%B8%B2%E6%9F%93%E6%88%90">http://xxx.xxx/xxx.png&quot;需要渲染成</a><img src="[http://xxx.xxx/xxx.png">](<a target="_blank" rel="noopener" href="http://xxx.xxx/xxx.png%22%3E)%E6%A0%87%E7%AD%BE%E3%80%82%E4%B8%80%E8%88%AC%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6%E4%BC%9A%E6%8F%90%E4%BE%9Bformatter%E6%96%B9%E6%B3%95%E6%9D%A5%E5%A4%84%E7%90%86%E5%8D%95%E5%85%83%E6%A0%BC%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91%EF%BC%8C%E8%BF%99%E9%87%8C%E6%88%91%E5%B0%B1%E4%B8%8D%E5%BE%97%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%9F%E6%88%90DOM%E8%8A%82%E7%82%B9">http://xxx.xxx/xxx.png%22%3E)标签。一般表格组件会提供formatter方法来处理单元格特殊处理逻辑，这里我就不得不直接生成DOM节点</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">formatter: <span class="function"><span class="keyword">function</span>(<span class="params">&#123;picUrl&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.$createElement(<span class="string">&#x27;img&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">attrs</span>: &#123;</span><br><span class="line">            <span class="attr">src</span>: picUrl</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>一般来说，会比较 “数据驱动” 与 “事件驱动”。数据驱动思想的出现一定程度上弥补了事件驱动的不足。</p>
+<p>先说事件驱动，一个很典型的例子就是 jQuery。用 jQuery 开发的页面执行初期就像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过特定的选择器查找到需要操作的节点 -&gt; 给节点添加相应的事件监听</span><br></pre></td></tr></table></figure>
+
+<p>响应用户操作，效果是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户执行某事件（点击，输入，后退等等） -&gt; 调用 JavaScript 来修改节点</span><br></pre></td></tr></table></figure>
+
+<p>这种模式，对于业务需求简单的页面来说没什么问题。只是现在前端越来越复杂，光用这样的模式已经满足不了很多大型项目的需求。<strong>另一方面，找节点和修改节点这件事儿，效率本身就很低</strong>。因此出现了数据驱动模式，我们就拿其中的一种，MVVM 来举例子，执行初期就像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">读取模板，同时获得数据，并建立 VM(view-model) 的抽象层 -&gt; 在页面进行填充</span><br></pre></td></tr></table></figure>
+
+<p>要注意的是，MVVM 对应了三个层，M - Model，可以简单的理解为数据层；V - View，可以理解为视图，或者网页界面；VM - ViewModel，一个抽象层，简单来说可以认为是 V 层中抽象出的数据对象，并且可以与 V 和 M 双向互动（一般实现是基于双向绑定，双向绑定的处理方式在不同框架中不尽相同）。<br>针对用户的操作，大致是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户执行某个操作 -&gt; 反馈到 VM 处理（可以导致 Model 变动） -&gt; VM 层改变，通过绑定关系直接更新页面对应位置的数据</span><br></pre></td></tr></table></figure>
+
+<p>总结一下，可以简单的这么去理解：<strong>数据驱动不是操作节点的，而是通过虚拟的抽象数据层来直接更新页面</strong>。我觉得，主要就是因为这一点，数据驱动框架才得以有较快的运行速度（因为不需要去折腾节点），并且可以应用到大型项目。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/%E5%89%8D%E7%AB%AF%E6%80%9D%E7%BB%B4%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8/" data-id="ckuvddn3a003bggdtaa2s3ik9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%98%9F%E5%88%97%E7%AF%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据结构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/17/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">箭头函数柯里化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/element/">element</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/canvas/">canvas</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

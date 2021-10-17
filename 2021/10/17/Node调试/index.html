@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Node调试 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Node调试">
+<meta property="og:url" content="http://example.com/2021/10/17/Node%E8%B0%83%E8%AF%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://oocfz31zv.bkt.clouddn.com/bg2018031901.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031902.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031903.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031904.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031905.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031906.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031907.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031908.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031909.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031910.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031911.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031912.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031913.png">
+<meta property="article:published_time" content="2021-10-17T14:55:17.369Z">
+<meta property="article:modified_time" content="2018-05-05T07:31:21.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="工具使用">
+<meta property="article:tag" content="Node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://oocfz31zv.bkt.clouddn.com/bg2018031901.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Node调试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/17/Node%E8%B0%83%E8%AF%95/" class="article-date">
+  <time datetime="2021-10-17T14:55:17.369Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node调试
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://oocfz31zv.bkt.clouddn.com/bg2018031901.png" alt="bg2018031901"></p>
+<span id="more"></span>
+
+<h1 id="Node调试工具入门"><a href="#Node调试工具入门" class="headerlink" title="Node调试工具入门"></a>Node调试工具入门</h1><p>2016年,Node决定将Chrome浏览器的开发者工具作为官方的调试工具，使得Node脚本也可以使用图形界面调试。</p>
+<p>本文介绍如何使用 Node 脚本的调试工具。</p>
+<h2 id="一、示例程序"><a href="#一、示例程序" class="headerlink" title="一、示例程序"></a>一、示例程序</h2><p>为了方便讲解，下面是一个示例脚本。首先，新建一个工作目录，并进入该目录。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir debug-demo</span><br><span class="line">$ <span class="built_in">cd</span> debug-demo</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>然后，生成<code>package.json</code>文件，并安装 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/08/koa.html">Koa</a> 框架和 koa-route 模块。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm init -y</span><br><span class="line">$ npm install --save koa koa-route</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>接着，新建一个脚本<code>app.js</code>，并写入下面的内容。</p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">&#x27;koa-route&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> welcome = <span class="function">(<span class="params">ctx, name</span>) =&gt;</span> &#123;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Hello &#x27;</span> + name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(router.get(<span class="string">&#x27;/&#x27;</span>, main));</span><br><span class="line">app.use(router.get(<span class="string">&#x27;/:name&#x27;</span>, welcome));</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;listening on port 3000&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码是一个简单的 Web 应用，指定了两个路由，访问后会显示一行欢迎信息。如果想了解代码的详细含义，可以参考 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/08/koa.html">Koa 教程</a>。</p>
+<h2 id="二、启动开发者工具"><a href="#二、启动开发者工具" class="headerlink" title="二、启动开发者工具"></a>二、启动开发者工具</h2><p>现在，运行上面的脚本。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect app.js</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，<code>--inspect</code>参数是启动调试模式必需的。这时，打开浏览器访问<code>http://127.0.0.1:3000</code>，就可以看到 Hello World 了。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031902.png" alt="img"></p>
+<p>接下来，就要开始调试了。一共有两种打开调试工具的方法，第一种是在 Chrome 浏览器的地址栏，键入 <code>chrome://inspect</code>或者<code>about:inspect</code>，回车后就可以看到下面的界面。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031903.png" alt="img"></p>
+<p>在 Target 部分，点击 inspect 链接，就能进入调试工具了。</p>
+<p>第二种进入调试工具的方法，是在 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> 的窗口打开”开发者工具”，顶部左上角有一个 Node 的绿色标志，点击就可以进入。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031904.png" alt="img"></p>
+<h2 id="三、调试工具窗口"><a href="#三、调试工具窗口" class="headerlink" title="三、调试工具窗口"></a>三、调试工具窗口</h2><p>调试工具其实就是”开发者工具”的定制版，省去了那些对服务器脚本没用的部分。</p>
+<p>它主要有四个面板。</p>
+<blockquote>
+<ul>
+<li>Console：控制台</li>
+<li>Memory：内存</li>
+<li>Profiler：性能</li>
+<li>Sources：源码</li>
+</ul>
+</blockquote>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031905.png" alt="img"></p>
+<p>这些面板的用法，基本上跟浏览器环境差不多，这里只介绍 Sources （源码）面板。</p>
+<h2 id="四、设置断点"><a href="#四、设置断点" class="headerlink" title="四、设置断点"></a>四、设置断点</h2><p>进入 Sources 面板，找到正在运行的脚本<code>app.js</code>。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031906.png" alt="img"></p>
+<p>在第11行（也就是下面这一行）的行号上点一下，就设置了一个断点。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.response.body = <span class="string">&#x27;Hello &#x27;</span> + name;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031907.png" alt="img"></p>
+<p>这时，浏览器访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/alice">http://127.0.0.1:3000/alice</a> ，页面会显示正在等待服务器返回。切换到调试工具，可以看到 Node 主线程处于暂停（paused）阶段。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031908.png" alt="img"></p>
+<p>进入 Console 面板，输入 name，会返回 alice。这表明我们正处在断点处的上下文（context）。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031909.png" alt="img"></p>
+<p>再切回 Sources 面板，右侧可以看到 Watch、Call Stack、Scope、Breakpoints 等折叠项。打开 Scope 折叠项，可以看到 Local 作用域和 Global 作用域里面的所有变量。</p>
+<p>Local 作用域里面，变量<code>name</code>的值是<code>alice</code>，双击进入编辑状态，把它改成<code>bob</code>。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031910.png" alt="img"></p>
+<p>然后，点击顶部工具栏的继续运行按钮。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031911.png" alt="img"></p>
+<p>页面上就可以看到 Hello bob 了。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031912.png" alt="img"></p>
+<p>命令行下，按下 ctrl + c，终止运行<code>app.js</code>。</p>
+<h2 id="五、调试非服务脚本"><a href="#五、调试非服务脚本" class="headerlink" title="五、调试非服务脚本"></a>五、调试非服务脚本</h2><p>Web 服务脚本会一直在后台运行，但是大部分脚本只是处理某个任务，运行完就会终止。这时，你可能根本没有时间打开调试工具。等你打开了，脚本早就结束运行了。这时怎么调试呢？</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect=9229 -e <span class="string">&quot;setTimeout(function() &#123; console.log(&#x27;yes&#x27;); &#125;, 30000)&quot;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，<code>--inspect=9229</code>指定调试端口为 9229，这是调试工具默认的通信端口。<code>-e</code>参数指定一个字符串，作为代码运行。</p>
+<p>访问<code>chrome://inspect</code>，就可以进入调试工具，调试这段代码了。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018031913.png" alt="img"></p>
+<p>代码放在<code>setTimeout</code>里面，总是不太方便。那些运行时间较短的脚本，可能根本来不及打开调试工具。这时就要使用下面的方法。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect-brk=9229 app.js</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，<code>--inspect-brk</code>指定在第一行就设置断点。也就是说，一开始运行，就是暂停的状态。</p>
+<h2 id="六、忘了写-–inspect-怎么办？"><a href="#六、忘了写-–inspect-怎么办？" class="headerlink" title="六、忘了写 –inspect 怎么办？"></a>六、忘了写 –inspect 怎么办？</h2><p>打开调试工具的前提是，启动 Node 脚本时就加上<code>--inspect</code>参数。如果忘了这个参数，还能不能调试呢？</p>
+<p>回答是可以的。首先，正常启动脚本。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node app.js</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>然后，在另一个命令行窗口，查找上面脚本的进程号。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ps ax | grep app.js </span><br><span class="line"></span><br><span class="line">30464 pts/11   Sl+    0:00 node app.js</span><br><span class="line">30541 pts/12   S+     0:00 grep app.js</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令中，<code>app.js</code>的进程号是<code>30464</code>。</p>
+<p>接着，运行下面的命令。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -e <span class="string">&#x27;process._debugProcess(30464)&#x27;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令会建立进程 30464 与调试工具的连接，然后就可以打开调试工具了。</p>
+<p>还有一种方法，就是向脚本进程发送 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/13052548/node-js-how-to-attach-to-a-running-process-and-to-debug-the-server-with-a-conso">SIGUSR1</a> 信号，也可以建立调试连接。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -SIGUSR1 30464</span><br></pre></td></tr></table></figure></blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/Node%E8%B0%83%E8%AF%95/" data-id="ckuvddn1o0014ggdth1it4e65" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/17/tampermonkey%E8%84%9A%E6%9C%AC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Tampermonkey简单脚本编写
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/17/mongodb%E5%A4%87%E4%BB%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MongoDB的备份</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/element/">element</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/canvas/">canvas</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

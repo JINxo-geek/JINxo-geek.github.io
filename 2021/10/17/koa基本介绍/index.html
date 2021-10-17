@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>koa基础 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="koa基础介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="koa基础">
+<meta property="og:url" content="http://example.com/2021/10/17/koa%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="koa基础介绍">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://oocfz31zv.bkt.clouddn.com/bV6D5Z.png">
+<meta property="article:published_time" content="2021-10-17T14:55:17.349Z">
+<meta property="article:modified_time" content="2018-05-29T14:34:15.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="node">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="koa">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://oocfz31zv.bkt.clouddn.com/bV6D5Z.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-koa基本介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/17/koa%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time datetime="2021-10-17T14:55:17.349Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      koa基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>koa基础介绍</p>
+<span id="more"></span>
+
+
+
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ul>
+<li>什么是叫中间件？处在 HTTP Request 和 HTTP Response 中间，用来实现某种中间功能。<code>app.use()</code>用来加载中间件。 </li>
+<li></li>
+</ul>
+<p>参照阮一峰的Koa的框架介绍（<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/08/koa.html%EF%BC%89%EF%BC%8C%E5%9C%A8%E5%8E%9F%E6%9C%89%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A%E8%BF%9B%E8%A1%8C%E6%89%A9%E5%B1%95%E3%80%82">http://www.ruanyifeng.com/blog/2017/08/koa.html），在原有的基础上进行扩展。</a></p>
+<p>代码 ：<a target="_blank" rel="noopener" href="https://github.com/ruanyf/koa-demos">https://github.com/ruanyf/koa-demos</a></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://koajs.com/">Koa</a> 就是一种简单好用的 Web 框架。它的特点是优雅、简洁、表达力强、自由度高。本身代码只有1000多行，所有功能都通过插件实现，很符合 Unix 哲学。</p>
+<p>本文从零开始，循序渐进，教会你如何使用 Koa 写出自己的 Web 应用。每一步都有简洁易懂的示例，希望让大家一看就懂。</p>
+</blockquote>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>首先，检查 Node 版本。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">v8.0.0</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>Koa 必须使用 7.6 以上的版本。如果你的版本低于这个要求，就要先升级 Node。</p>
+<p>然后，克隆本文的配套<a target="_blank" rel="noopener" href="https://github.com/ruanyf/koa-demos">示例库</a>。（如果不方便使用 Git，也可以下载 <a target="_blank" rel="noopener" href="https://github.com/ruanyf/koa-demos/archive/master.zip">zip 文件</a>解压。）</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/ruanyf/koa-demos.git</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>接着，进入示例库，安装依赖。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> koa-demos</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>所有示例源码，都在 <a target="_blank" rel="noopener" href="https://github.com/ruanyf/koa-demos/tree/master/demos">demos</a> 目录下面。</p>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><h2 id="架设HTTP服务器"><a href="#架设HTTP服务器" class="headerlink" title="架设HTTP服务器"></a>架设HTTP服务器</h2><p>只要三行代码，就可以用Koa架设一个HTTP服务器。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//app.js</span></span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$node</span> app</span><br></pre></td></tr></table></figure>
+
+
+
+<p>打开浏览器，访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> 。你会看到页面显示”Not Found”，表示没有发现任何内容。这是因为我们并没有告诉 Koa 应该显示什么内容。 </p>
+<h2 id="Context对象"><a href="#Context对象" class="headerlink" title="Context对象"></a>Context对象</h2><p>Koa提供一个Context对象，表示一次对话的上下文包括了HTTP请求和恢复。通过加工这个对象，就可以控制返回给用户的内容。<br>Context.response.body 属性就是发送给用户的内容。</p>
+<blockquote>
+<p>（在处理http请求时，Node提供了request和response两个对象，Koa把两者封装到了同一个对象中，即context，缩写为ctx 。在context中封装了许多方法，大部分都是从原生的request/response 对象使用委托方式得来的，虽然ctx封装了reqest和response对象的方法，但这并不代表ctx.Request就和原生的request对象完全相同.  尤其是ctx.response的结构，和原生的request对象还是有很大区别的，ctx.response对象只是一个单纯的字符串，上面没有注册任何事件。   ）</p>
+</blockquote>
+<blockquote>
+<h3 id="处理http请求"><a href="#处理http请求" class="headerlink" title="处理http请求"></a>处理http请求</h3><p>koa的ctx对象中封装了request以及response对象，那么在处理http请求中，使用ctx对象就可以完成所有的处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.body = “Hello World”；</span><br></pre></td></tr></table></figure>
+
+<p>相当于 http模块 中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res.statusCode = <span class="number">200</span>; </span><br><span class="line">res.end(“Hello World”);</span><br></pre></td></tr></table></figure>
+
+<p><strong>ctx.body也可以写成ctx.response.body，ctx相当于ctx.request/response的别名。</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = requrie(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">    ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">app.use(main)；</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>main</code>函数用来设置<code>ctx.response.body</code>。然后，使用<code>app.use</code>方法加载<code>main</code>函数。</p>
+<p>你可能已经猜到了，<code>ctx.response</code>代表 HTTP Response。同样地，<code>ctx.request</code>代表 HTTP Request。</p>
+<p>运行这个 demo。 访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，现在就可以看到”Hello World”了。 </p>
+<h2 id="HTTP-Response-的类型"><a href="#HTTP-Response-的类型" class="headerlink" title="HTTP Response 的类型"></a>HTTP Response 的类型</h2><p>koa默认返回的类型是text/plain,如果想要返回其他类型的内容，可以先用ctx.request.accepts判断下，客户端希望接受什么数据（根据HTTP Request的Accept字段），然后使用ctx.response.type指定返回类型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (ctx.request.accepts(<span class="string">&#x27;xml&#x27;</span>)) &#123;</span><br><span class="line">    ctx.response.type = <span class="string">&#x27;xml&#x27;</span>;</span><br><span class="line">    ctx.response.body = <span class="string">&#x27;&lt;data&gt;Hello World&lt;/data&gt;&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ctx.request.accepts(<span class="string">&#x27;json&#x27;</span>)) &#123;</span><br><span class="line">    ctx.response.type = <span class="string">&#x27;json&#x27;</span>;</span><br><span class="line">    ctx.response.body = &#123; <span class="attr">data</span>: <span class="string">&#x27;Hello World&#x27;</span> &#125;;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ctx.request.accepts(<span class="string">&#x27;html&#x27;</span>)) &#123;</span><br><span class="line">    ctx.response.type = <span class="string">&#x27;html&#x27;</span>;</span><br><span class="line">    ctx.response.body = <span class="string">&#x27;&lt;p&gt;Hello World&lt;/p&gt;&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    ctx.response.type = <span class="string">&#x27;text&#x27;</span>;</span><br><span class="line">    ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行这个 demo。 访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，现在看到的就是一个 XML 文档了。 </p>
+<h2 id="网页模板"><a href="#网页模板" class="headerlink" title="网页模板"></a>网页模板</h2><p>实际开发中，返回给用户的网页往往都写成模板文件。我们可以先让Koa读取模板文件，然后将这个模板返给用户。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.type = <span class="string">&#x27;html&#x27;</span>;</span><br><span class="line">  ctx.response.body = fs.createReadStream(<span class="string">&#x27;./demos/template.html&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//fs.createReadStream从指定路径读取了模板文件</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行这个 Demo。 访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，看到的就是<a target="_blank" rel="noopener" href="https://github.com/ruanyf/koa-demos/blob/master/demos/template.html">模板文件</a>的内容了。 （渲染好的）</p>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>讲到路由，先说说原生的路由，通过<code>ctx.request.path</code> 可以获取到用户请求的路径，由此实现简单的路由。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//核心代码</span></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(ctx.request.path !== <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">        ctx.response.type = <span class="string">&#x27;html&#x27;</span>;</span><br><span class="line">        ctx.response.body = <span class="string">&#x27;&lt;a href = &#x27;</span>/<span class="string">&#x27;&gt;Index page&lt;/a&gt;&#x27;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>&#123;</span><br><span class="line">        ctx.response.body = <span class="string">&#x27;Hello World &#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行这个 demo。 访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/about">http://127.0.0.1:3000/about</a> ，可以看到一个链接，点击后就跳到首页。 </p>
+<h1 id="koa-route-模块"><a href="#koa-route-模块" class="headerlink" title="koa-route 模块"></a>koa-route 模块</h1><p>原生路由用起来不方便，我们可以使用封装好的koa-route模块。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// demos/06.js</span></span><br><span class="line"><span class="keyword">const</span> route = <span class="built_in">require</span>(<span class="string">&#x27;koa-route&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> about = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.type = <span class="string">&#x27;html&#x27;</span>;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;&lt;a href=&quot;/&quot;&gt;Index Page&lt;/a&gt;&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(route.get(<span class="string">&#x27;/&#x27;</span>, main));</span><br><span class="line">app.use(route.get(<span class="string">&#x27;/about&#x27;</span>, about));</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，根路径<code>/</code>的处理函数是<code>main</code>，<code>/about</code>路径的处理函数是<code>about</code>。</p>
+<p>运行这个 demo。访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/about">http://127.0.0.1:3000/about</a> ，效果与上一个例子完全相同。 </p>
+<p><code>app.use()</code>这个就是中间件的标志做法。</p>
+<h2 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h2><p>如果网站提供静态资源（图片，字体，样式表，脚本等等）为它们写一个个路由就很麻烦，也没必要，<code>koa-static</code> 模块封装了这部分的请求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> serve = <span class="built_in">require</span>(<span class="string">&#x27;koa-static&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = serve(path.join(__dirname));</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行这个 Demo。如果目录下有个12.js文件。那 访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/12.js%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E9%87%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%BF%99%E4%B8%AA%E8%84%9A%E6%9C%AC%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82">http://127.0.0.1:3000/12.js，在浏览器里就可以看到这个脚本的内容。</a> （和使用了Nginx形成了网站的功能一样）。</p>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><p>有些场合，服务器需要重定向redirect 访问请求。比如用户登入以后，将他重定向到登入前的页面。<code>ctx.resposne.redirect()</code> 方法可以发出一个302跳转，将用户导向另一个路由。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">18</span> lines (<span class="number">13</span> sloc)  <span class="number">319</span> Bytes</span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> route = <span class="built_in">require</span>(<span class="string">&#x27;koa-route&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> redirect = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.redirect(<span class="string">&#x27;/&#x27;</span>);<span class="comment">//跳转转到指定路由</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(route.get(<span class="string">&#x27;/&#x27;</span>, main));</span><br><span class="line">app.use(route.get(<span class="string">&#x27;/redirect&#x27;</span>, redirect));</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/redirect">http://127.0.0.1:3000/redirect</a> ，浏览器会将用户导向根路由。 </p>
+<h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><ul>
+<li>Logger功能（打印日志）</li>
+</ul>
+<p>Koa的最大特色，也就是最重要的设计，就是中间件（middleware） 。为了理解中间件，我们先看看Logger(打印日志)<br>最简单的写法就是在main函数里面增加一行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span> <span class="subst">$&#123;ctx.request.url&#125;</span>`</span>);<span class="comment">//手动写的字符串模板</span></span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，命令行就会输出日志。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1502144902843 GET /</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面例子里面的Logger功能，可以拆分成一个独立函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span> <span class="subst">$&#123;ctx.request.url&#125;</span>`</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(logger);</span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>像上面的代码中logger函数就叫做中间件，因为它处于HTTP Request和HTTP Response中间，用来实现某种中间功能，</p>
+<p><code>app.use()</code>用来加载中间件。</p>
+<p>基本上，Koa所有的功能都是通过中间件实现的，前面的例子里面main也是中间件，每个中间件默认接受了两个参数，第一个参数是Context对象，第个参数是next函数，只要调用next函数，就可以把执行权转交给下一个中间间。</p>
+<p>运行这个 demo。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node demos/08.js</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，命令行窗口会显示与上一个例子相同的日志输出。</p>
+<h2 id="中间件栈"><a href="#中间件栈" class="headerlink" title="中间件栈"></a>中间件栈</h2><p>多个中间件会形成一个栈结构（middle stack），以”先进后出”（first-in-last-out）的顺序执行。<br>(按廖雪峰的koa介绍里面是说koa将中间件连成一个处理链，先app.use的在链的开头,也就是这里的最外层中间件)</p>
+<blockquote>
+<ol>
+<li>最外层的中间件首先执行。</li>
+<li>调用<code>next</code>函数，把执行权交给下一个中间件。</li>
+<li>…</li>
+<li>最内层的中间件最后执行。</li>
+<li>执行结束后，把执行权交回上一层的中间件。</li>
+<li>…</li>
+<li>最外层的中间件收回执行权之后，执行<code>next</code>函数后面的代码。</li>
+</ol>
+</blockquote>
+<p><img src="http://oocfz31zv.bkt.clouddn.com/bV6D5Z.png" alt="bV6D5Z"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> one = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;&gt;&gt; one&#x27;</span>);<span class="comment">//1.</span></span><br><span class="line">  next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;&lt;&lt; one&#x27;</span>);<span class="comment">//6</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> two = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;&gt;&gt; two&#x27;</span>);<span class="comment">//2.</span></span><br><span class="line">  next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;&lt;&lt; two&#x27;</span>);<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> three = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;&gt;&gt; three&#x27;</span>);<span class="comment">//3.</span></span><br><span class="line">  next();<span class="comment">//发现没有下一个中间件了，是最内层中间件。</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;&lt;&lt; three&#x27;</span>);<span class="comment">//4</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.use(one);</span><br><span class="line">app.use(two);</span><br><span class="line">app.use(three);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br><span class="line"><span class="comment">//这种执行顺序被比喻为洋葱模型。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，命令行窗口会有如下输出。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; one</span><br><span class="line">&gt;&gt; two</span><br><span class="line">&gt;&gt; three</span><br><span class="line">&lt;&lt; <span class="string">three</span></span><br><span class="line"><span class="string">&lt;&lt; two</span></span><br><span class="line"><span class="string">&lt;&lt; one</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>如果中间件内部没有调用<code>next</code>函数，那么执行权就不会传递下去。 </p>
+<h2 id="异步中间件"><a href="#异步中间件" class="headerlink" title="异步中间件"></a>异步中间件</h2><p>迄今为止，所有的例子的中间件都是同步的，不包含异步操作，如果异步操作（如读取数据库）。中间件就必须写成<br>async 函数 （Generator 函数的语法糖。 最大特点就是可以交出<em>函数</em>的执行权(即暂停执行) </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs.promised&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">ctx, next</span>) </span>&#123;<span class="comment">//async函数</span></span><br><span class="line">  ctx.response.type = <span class="string">&#x27;html&#x27;</span>;</span><br><span class="line">  ctx.response.body = <span class="keyword">await</span> fs.readFile(<span class="string">&#x27;./demos/template.html&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>);<span class="comment">//这一步 await</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>fs.readFile</code>是一个异步操作，必须写成<code>await fs.readFile()</code>，然后中间件必须写成 async 函数。</p>
+<p>运行这个 demo。</p>
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，就可以看到模板文件的内容。 </p>
+<h2 id="中间件的合成"><a href="#中间件的合成" class="headerlink" title="中间件的合成"></a>中间件的合成</h2><p><code>koa-compose</code> 模块可以将多个中间件合成为一个，请看下面的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> compose = <span class="built_in">require</span>(<span class="string">&#x27;koa-compose&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span> <span class="subst">$&#123;ctx.request.method&#125;</span> <span class="subst">$&#123;ctx.request.url&#125;</span>`</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> middlewares = compose([logger, main]);</span><br><span class="line"></span><br><span class="line">app.use(middlewares);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br><span class="line"><span class="comment">/*原先的时候是分开写成app.use(logger);</span></span><br><span class="line"><span class="comment">app.use(main);*/</span></span><br></pre></td></tr></table></figure>
+
+<p>运行这个 demo。</p>
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，就可以在命令行窗口看到日志信息。</p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>如果代码运行过程中发生错误，我们需要把错误信息返回给用户。</p>
+<p><strong>HTTP协议约定</strong>这时要返回<strong>500状态码</strong>。Koa提供了<code>ctx.throw()</code> 方法，用来抛出错误，<code>ctx.throw(500)</code>就是抛出500错误。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.throw(<span class="number">500</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>400状态码</strong> ，如果将<code>ctx.resposne.status</code> 设置成404，就相当于<code>ctx.throw(404)</code>,返回404错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.response.status = <span class="number">404</span>;</span><br><span class="line">  ctx.response.body = <span class="string">&#x27;Page Not Found&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，你就看到一个404页面”Page Not Found”。 </p>
+<h1 id="处理错误的中间件。"><a href="#处理错误的中间件。" class="headerlink" title="处理错误的中间件。"></a>处理错误的中间件。</h1><p>为了方便处理u从无，最好使用<code>try...catch</code> 将其捕获，但是每个为每个中间件都写<code>try...catch</code> 太麻烦，我们可以让最外层的中间件负责所有中间件的错误处理。<br>(可能和Promise对象有关？)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handler = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> next();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    ctx.response.status = err.statusCode || err.status || <span class="number">500</span>;</span><br><span class="line">    ctx.response.body = &#123;</span><br><span class="line">      <span class="attr">message</span>: err.message</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.throw(<span class="number">500</span>);<span class="comment">//内层中间件抛出错误</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(handler);</span><br><span class="line">app.use(main);</span><br></pre></td></tr></table></figure>
+
+<p>运行这个Demo访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，你会看到一个500页，里面有报错提示 <code>&#123;&quot;message&quot;:&quot;Internal Server Error&quot;&#125;</code>。 </p>
+<h1 id="error事件的监听"><a href="#error事件的监听" class="headerlink" title="error事件的监听"></a>error事件的监听</h1><p>运行过程中一旦出错，Koa会触发一个<code>error</code> 事件，监听这个事件，也可以处理错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.throw(<span class="number">500</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">err, ctx</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.error(<span class="string">&#x27;server error&#x27;</span>, err);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行这个Demo，访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，你会在命令行窗口看到”server error xxx”。 </p>
+<h1 id="释放error事件"><a href="#释放error事件" class="headerlink" title="释放error事件"></a>释放error事件</h1><p>需要注意的是，如果错误被<code>try...catch</code> 捕获就不会触发<code>error</code> 事件，这时，必须调用<code>ctx.app.emit()</code> 手动释放<code>error</code> 事件，才能让监听函数生效。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handler = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> next();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    ctx.response.status = err.statusCode || err.status || <span class="number">500</span>;</span><br><span class="line">    ctx.response.type = <span class="string">&#x27;html&#x27;</span>;</span><br><span class="line">    ctx.response.body = <span class="string">&#x27;&lt;p&gt;Something wrong, please contact administrator.&lt;/p&gt;&#x27;</span>;</span><br><span class="line">    ctx.app.emit(<span class="string">&#x27;error&#x27;</span>, err, ctx);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="params">ctx</span> =&gt;</span> &#123;</span><br><span class="line">  ctx.throw(<span class="number">500</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">&#x27;error&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;logging error &#x27;</span>, err.message);</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>main</code>函数抛出错误，被<code>handler</code>函数捕获。<code>catch</code>代码块里面使用<code>ctx.app.emit()</code>手动释放<code>error</code>事件，才能让监听函数监听到。</p>
+<p>运行这个 demo。访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，你会在命令行窗口看到<code>logging error</code>。 </p>
+<h1 id="Web-App的功能"><a href="#Web-App的功能" class="headerlink" title="Web App的功能"></a>Web App的功能</h1><p><strong>Cookies</strong></p>
+<p><code>ctx.cookies</code> 用来读写<code>Cookie</code> 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> n = <span class="built_in">Number</span>(ctx.cookies.get(<span class="string">&#x27;view&#x27;</span>) || <span class="number">0</span>) + <span class="number">1</span>;</span><br><span class="line">  ctx.cookies.set(<span class="string">&#x27;view&#x27;</span>, n);</span><br><span class="line">  ctx.response.body = n + <span class="string">&#x27; views&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行这个 demo。 访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a> ，你会看到<code>1 views</code>。刷新一次页面，就变成了<code>2 views</code>。再刷新，每次都会计数增加1。 </p>
+<h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h1><p>Web 应用离不开处理表单，本质上，表单就是POST方法发送到服务器的键值对。<br><code>koa-body</code> 模块可以用来从POST请求数据体里面提取键值对。请看下面的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> koaBody = <span class="built_in">require</span>(<span class="string">&#x27;koa-body&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> body = ctx.request.body;</span><br><span class="line">    <span class="keyword">if</span>(!body.name) ctx.throw(<span class="number">400</span>,<span class="string">&#x27;.name required&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.use(koaBody());</span><br><span class="line">app.use(main);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>运行这个 demo。 </p>
+<p>打开另一个命令行窗口，运行下面的命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -X POST --data <span class="string">&quot;name=Jack&quot;</span> 127.0.0.1:3000</span></span><br><span class="line">&#123;&quot;name&quot;:&quot;Jack&quot;&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> curl -X POST --data <span class="string">&quot;name&quot;</span> 127.0.0.1:3000</span></span><br><span class="line">name required</span><br></pre></td></tr></table></figure>
+
+<p>上面代码使用POST方法向服务器发送一个键值对，会被正确解析，如果发送的数据不正确，就会收到错误的提示。</p>
+<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p> <code>koa-body</code> 模块还可以用来开处理文件上传。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">&#x27;os&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> koaBody = <span class="built_in">require</span>(<span class="string">&#x27;koa-body&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> main = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> tmpdir = os.tmpdir();</span><br><span class="line">    <span class="keyword">const</span> filePaths = [];</span><br><span class="line">    <span class="keyword">const</span> files = ctx.request.body.files || &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>  (<span class="keyword">let</span> key <span class="keyword">in</span> files) &#123;</span><br><span class="line">    <span class="keyword">const</span> file = files[key];</span><br><span class="line">    <span class="keyword">const</span> filePath = path.join(tmpdir,file.name);</span><br><span class="line">    <span class="keyword">const</span> reader = fs.createReadStream(file.path);</span><br><span class="line">    <span class="keyword">const</span> writer = fs.createWriteStream(filePath);</span><br><span class="line">    reader.pipe(writer);</span><br><span class="line">    filePaths.push(filePath);</span><br><span class="line">&#125;</span><br><span class="line">ctx.body = filePaths;</span><br><span class="line">&#125;;</span><br><span class="line">app.use(koaBody(&#123;<span class="attr">multipart</span>: <span class="literal">true</span>&#125;));</span><br></pre></td></tr></table></figure>
+
+<p>运行这个demo。</p>
+<p>打开另一个命令行窗口，运行下面的命令，上传一个文件。注意，<code>/path/to/file</code>要更换为真实的文件路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl --form upload=@/path/to/file http://127.0.0.1:3000</span></span><br><span class="line">[&quot;/tmp/file&quot;]</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/koa%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" data-id="ckuvddn290027ggdt9wmj65q7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/17/koa%E4%BB%8B%E7%BB%8D%EF%BC%8C%E5%BB%96%E9%9B%AA%E5%B3%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          koa2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/17/js%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">表单验证</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/element/">element</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/canvas/">canvas</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

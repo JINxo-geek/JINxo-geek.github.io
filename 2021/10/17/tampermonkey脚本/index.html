@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Tampermonkey简单脚本编写 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tampermonkey，浏览器一大神器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tampermonkey简单脚本编写">
+<meta property="og:url" content="http://example.com/2021/10/17/tampermonkey%E8%84%9A%E6%9C%AC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Tampermonkey，浏览器一大神器">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-17T14:55:17.374Z">
+<meta property="article:modified_time" content="2018-04-29T18:38:31.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-tampermonkey脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/10/17/tampermonkey%E8%84%9A%E6%9C%AC/" class="article-date">
+  <time datetime="2021-10-17T14:55:17.374Z" itemprop="datePublished">2021-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Tampermonkey简单脚本编写
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tampermonkey，浏览器一大神器</p>
+<span id="more"></span>
+
+<h1 id="Tampermonkey"><a href="#Tampermonkey" class="headerlink" title="Tampermonkey"></a>Tampermonkey</h1><p>Tampermonkey是浏览器的一大神器，可以在里面编写javascript脚本，配合Tampermonkey自身的语法，为所匹配的网站添加自己的功能。本教程展示微博视频下载的脚本。</p>
+<h1 id="了解Tampermonkey"><a href="#了解Tampermonkey" class="headerlink" title="了解Tampermonkey"></a>了解Tampermonkey</h1><p>为浏览器安装好Tampermonkey插件后,选择添加新脚本,<br>生成脚本文件如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         New Userscript</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      0.1</span></span><br><span class="line"><span class="comment">// @description  try to take over the world!</span></span><br><span class="line"><span class="comment">// @author       You</span></span><br><span class="line"><span class="comment">// @match        http://blog.csdn.net/</span></span><br><span class="line"><span class="comment">// @grant        none</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Your code here...</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>在生成的代码中,@math 写的是脚本生效的网址,为了使脚本对整个网站都生效可以使用通配符,也就是<em>号<br>eg:@match        <a target="_blank" rel="noopener" href="http://www.xxxx.com/">http://www.xxxx.com/</a></em><br>为了方便操作页面元素,可以引用jQuery框架,添加代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @require    http://code.jquery.com/jquery-1.11.0.min.js  </span></span><br></pre></td></tr></table></figure>
+
+<p>之后在网页下写的脚本都将生效</p>
+<h1 id="元数据块"><a href="#元数据块" class="headerlink" title="元数据块"></a>元数据块</h1><p>元数据块是描述脚本的一个用户脚本部分。它通常包含脚本名称，命名空间，描述和包含和排除规则。元数据块出现在JavaScript行注释中，可能会出现在脚本内的任何位置， 但通常靠近文件的顶部。<br>如果脚本没有声明@grant，那么Greasemonkey将自动检测脚本用了哪些API（目前自动检测的方法就是简单地看脚本中有没有出现这些API的名字，哪怕注释掉没运行的也算）</p>
+<table>
+<thead>
+<tr>
+<th><strong>键</strong></th>
+<th><strong>示例</strong></th>
+<th><strong>备注</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@name</td>
+<td><a target="_blank" rel="noopener" href="https://www.52pojie.cn/home.php?mod=space&uid=170990">@name</a>  脚本名称</td>
+<td>脚本的名称。该项将显示在页面的标题以及链接内容，必填项。</td>
+</tr>
+<tr>
+<td>@description</td>
+<td>@description  脚本功能描述</td>
+<td>脚本功能的描述，显示在脚本标题下面，必填项。</td>
+</tr>
+<tr>
+<td>@namespace</td>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://www.52pojie.cn/home.php?mod=space&uid=467642">@namespace</a> 及 @name 这两个属性将帮助用户脚本管理器判断是否已安  装该脚本。</td>
+</tr>
+<tr>
+<td>@version</td>
+<td>@version  0.0.1</td>
+<td>脚本的版本标记将使用 Mozilla 版本格式 并显示于脚本的简介页面，必填  项。</td>
+</tr>
+<tr>
+<td>@include@exclude@match</td>
+<td>@match  <em>://<a target="_blank" rel="noopener" href="http://www.52pojie.cn/">www.52pojie.cn/</a></em></td>
+<td>描述脚本将执行的页面。该列表会被分析并展示到脚本的简介页面，以及  用于脚本分类。</td>
+</tr>
+<tr>
+<td>@require</td>
+<td>@require <a target="_blank" rel="noopener" href="http://cdn.bootcss.com/jquery.min.js">http://cdn.bootcss.com/jquery.min.js</a></td>
+<td>引用外部脚本到您的脚本</td>
+</tr>
+<tr>
+<td>@updateURL@installURL,  @downloadURL</td>
+<td></td>
+<td>告知用户脚本管理器应该在哪个地址获取脚本更新。</td>
+</tr>
+<tr>
+<td>@license</td>
+<td></td>
+<td>脚本所使用的许可协议名称或地址，该协议需包含用户是否允许二次分发  或修改  脚本的权利。不提供许可协议则表示用户仅允许个人使用且不得  二次分发；该协  议将在脚本的简介页面显示。</td>
+</tr>
+<tr>
+<td>@supportURL</td>
+<td></td>
+<td>用户可获得该脚本技术支持的链接地址 (如：错误反馈系统、论坛、电子  邮件)，该链接将显示在脚本的反馈页面。</td>
+</tr>
+<tr>
+<td>@contributionURL</td>
+<td></td>
+<td>用于捐赠脚本作者的链接，该链接将显示在脚本的反馈页面。</td>
+</tr>
+<tr>
+<td>@contributionAmount</td>
+<td></td>
+<td>建议捐赠金额，请配合 @contributionURL 使用。</td>
+</tr>
+<tr>
+<td>@compatible</td>
+<td></td>
+<td>标记此脚本与某个浏览器兼容，兼容性信息将显示在脚本的简介页面上。</td>
+</tr>
+<tr>
+<td>@incompatible</td>
+<td></td>
+<td>标记此脚本与某个浏览器不兼容，兼容性信息将显示在脚本的简介页面  上。</td>
+</tr>
+</tbody></table>
+<h1 id="编写微博视频下载教程"><a href="#编写微博视频下载教程" class="headerlink" title="编写微博视频下载教程"></a>编写微博视频下载教程</h1><p>微博的视频在video中有视频直链,可以获取video的src属性,然后在页面上添加一个下载按钮,就可以直接下载视频资源.<br>在@math后跟上<code>*://weibo.com/tv/v/*</code>,让脚本在有微博视频的地址生效.</p>
+<p>@require后跟上<a target="_blank" rel="noopener" href="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js">http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js</a> 引入jq类库</p>
+<p>在自执行匿名函数中写上需要执行的脚本代码.让网址自动执行.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>第一步:创建一个下载弹出框与获取文件名的工具对象.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> videoTool =&#123;</span><br><span class="line">    <span class="attr">getFileName</span>: <span class="function"><span class="keyword">function</span> (<span class="params">url, rule_start, rule_end</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> start = url.lastIndexOf(rule_start) + <span class="number">1</span>;<span class="comment">//参数首字母在url字符串中的位置.</span></span><br><span class="line">		<span class="keyword">var</span> end = url.lastIndexOf(rule_end);</span><br><span class="line">		<span class="keyword">return</span> url.substring(start,end);</span><br><span class="line">    &#125;,</span><br><span class="line">	<span class="comment">//弹出下载框</span></span><br><span class="line"> 	<span class="attr">download</span>: <span class="function"><span class="keyword">function</span> (<span class="params">videoUrl, name</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> content = <span class="string">&quot;file content!&quot;</span>;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="keyword">new</span> Blob([content],&#123;</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&quot;text/plain;charset=UTF-8&quot;</span></span><br><span class="line">        &#125;);<span class="comment">//创建一个blob对象</span></span><br><span class="line">		<span class="keyword">var</span> downloadURL = <span class="built_in">window</span>.URL.creatObjectURL(data);<span class="comment">//创建一个URL对象</span></span><br><span class="line">		<span class="keyword">var</span> anchor = <span class="built_in">document</span>.creatElement(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">      <span class="comment">//创建a标签DOM元素</span></span><br><span class="line">		anchor.href = videoUrl;</span><br><span class="line">		anchor.download = name;</span><br><span class="line">		anchor.click();</span><br><span class="line">		<span class="built_in">window</span>.URL.revokeObjctURL(data);</span><br><span class="line">    &#125;	</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>第二步,生成一个下载按钮,嵌入页面中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用了油猴脚本的API.与元数据块中的@grant值相对应，功能是生成一个style样式</span></span><br><span class="line">GM_addStyle(<span class="string">&#x27;#down_video_btn&#123;color:#fa7d3c;&#125;&#x27;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//视频下载按钮的html代码</span></span><br><span class="line"><span class="keyword">var</span> down_btn_html = <span class="string">&#x27;&lt;li&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;a href=&quot;javascript:void(0);&quot; id=&quot;down_video_btn&quot; class=&quot;S_txt2&quot; title=&quot;视频下载&quot;&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;span class=&quot;pos&quot;&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;span class=&quot;line S_line1&quot; node-type=&quot;comment_btn_text&quot;&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;span&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;em class=&quot;W_ficon ficon_video_v2 S_ficon&quot;&gt;i&lt;/em&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;em&gt;视频下载&lt;/em&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27; &lt;span class=&quot;arrow&quot;&gt;&lt;span class=&quot;W_arrow_bor W_arrow_bor_t&quot;&gt;&lt;i class=&quot;S_line1&quot;&gt;&lt;/i&gt;&lt;em class=&quot;S_bg1_br&quot;&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">down_btn_html += <span class="string">&#x27; &lt;/li&gt;&#x27;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//将以上拼接的html代码插入到网页里的ul标签中</span></span><br><span class="line"><span class="keyword">var</span> ul_tag = $(<span class="string">&quot;div.WB_handle&gt;ul&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (ul_tag) &#123;</span><br><span class="line">    ul_tag.removeClass(<span class="string">&quot;WB_row_r3&quot;</span>).addClass(<span class="string">&quot;WB_row_r4&quot;</span>).append(down_btn_html);<span class="comment">//ul_tag DOM元素结尾加上down_btn_html 元素.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后一步</p>
+<p>获取播放器(video)对象中的视频地址,并编写下载按钮的单击事件.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//获取播放器（video）对象</span></span><br><span class="line">    <span class="keyword">var</span> video = $(<span class="string">&quot;video&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> video_url = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (video) &#123;</span><br><span class="line">        video_url = video.attr(<span class="string">&quot;src&quot;</span>); <span class="comment">//获取视频链接地址</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//执行下载按钮的单击事件并调用下载函数</span></span><br><span class="line">    $(<span class="string">&quot;#down_video_btn&quot;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (video_url) &#123;</span><br><span class="line">            videoTool.download(video_url, videoTool.getFileName(video_url, <span class="string">&quot;/&quot;</span>, <span class="string">&quot;?&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);<span class="comment">//download属性，只要有这个属性，点击这个链接时浏览器就不在打开链接指向的文件，而是改为下载</span></span><br></pre></td></tr></table></figure>
+
+<p>完整代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @icon            http://weibo.com/favicon.ico</span></span><br><span class="line"><span class="comment">// @name            微博视频下载助手</span></span><br><span class="line"><span class="comment">// @namespace       http://weibo.com</span></span><br><span class="line"><span class="comment">// @author          jin</span></span><br><span class="line"><span class="comment">// @description     下载微博视频</span></span><br><span class="line"><span class="comment">// @match           *://weibo.com/tv/v/*</span></span><br><span class="line"><span class="comment">// @require         http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js</span></span><br><span class="line"><span class="comment">// @version         0.0.1</span></span><br><span class="line"><span class="comment">// @grant           GM_addStyle</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    &#x27;use strict&#x27;</span>;</span><br><span class="line">    <span class="comment">//与元数据块中的@grant值相对应，功能是生成一个style样式</span></span><br><span class="line">    GM_addStyle(<span class="string">&#x27;#down_video_btn&#123;color:#fa7d3c;&#125;&#x27;</span>);</span><br><span class="line">    <span class="comment">//视频下载按钮的html代码</span></span><br><span class="line">    <span class="keyword">var</span> down_btn_html = <span class="string">&#x27;&lt;li&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;a href=&quot;javascript:void(0);&quot; id=&quot;down_video_btn&quot; class=&quot;S_txt2&quot; title=&quot;视频下载&quot;&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;span class=&quot;pos&quot;&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;span class=&quot;line S_line1&quot; node-type=&quot;comment_btn_text&quot;&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;span&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;em class=&quot;W_ficon ficon_video_v2 S_ficon&quot;&gt;i&lt;/em&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;em&gt;视频下载&lt;/em&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27; &lt;span class=&quot;arrow&quot;&gt;&lt;span class=&quot;W_arrow_bor W_arrow_bor_t&quot;&gt;&lt;i class=&quot;S_line1&quot;&gt;&lt;/i&gt;&lt;em class=&quot;S_bg1_br&quot;&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&#x27;</span>;</span><br><span class="line">    down_btn_html += <span class="string">&#x27; &lt;/li&gt;&#x27;</span>;</span><br><span class="line">    <span class="comment">//将以上拼接的html代码插入到网页里的ul标签中</span></span><br><span class="line">    <span class="keyword">var</span> ul_tag = $(<span class="string">&quot;div.WB_handle&gt;ul&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (ul_tag) &#123;</span><br><span class="line">        ul_tag.removeClass(<span class="string">&quot;WB_row_r3&quot;</span>).addClass(<span class="string">&quot;WB_row_r4&quot;</span>).append(down_btn_html);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> videoTool = &#123;</span><br><span class="line">        <span class="comment">//获取文件名</span></span><br><span class="line">        <span class="attr">getFileName</span>: <span class="function"><span class="keyword">function</span> (<span class="params">url, rule_start, rule_end</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> start = url.lastIndexOf(rule_start) + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">var</span> end = url.lastIndexOf(rule_end);</span><br><span class="line">            <span class="keyword">return</span> url.substring(start, end);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//弹出下载框</span></span><br><span class="line">        <span class="attr">download</span>: <span class="function"><span class="keyword">function</span> (<span class="params">videoUrl, name</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> content = <span class="string">&quot;file content!&quot;</span>;</span><br><span class="line">            <span class="keyword">var</span> data = <span class="keyword">new</span> Blob([content], &#123;</span><br><span class="line">                <span class="attr">type</span>: <span class="string">&quot;text/plain;charset=UTF-8&quot;</span></span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">var</span> downloadUrl = <span class="built_in">window</span>.URL.createObjectURL(data);</span><br><span class="line">            <span class="keyword">var</span> anchor = <span class="built_in">document</span>.createElement(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">            anchor.href = videoUrl;</span><br><span class="line">            anchor.download = name;</span><br><span class="line">            anchor.click();</span><br><span class="line">            <span class="built_in">window</span>.URL.revokeObjectURL(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//获取播放器（video）对象</span></span><br><span class="line">        <span class="keyword">var</span> video = $(<span class="string">&quot;video&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> video_url = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (video) &#123;</span><br><span class="line">            video_url = video.attr(<span class="string">&quot;src&quot;</span>); <span class="comment">//获取视频链接地址</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//执行下载按钮的单击事件并调用下载函数</span></span><br><span class="line">        $(<span class="string">&quot;#down_video_btn&quot;</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (video_url) &#123;</span><br><span class="line">                videoTool.download(video_url, videoTool.getFileName(video_url, <span class="string">&quot;/&quot;</span>, <span class="string">&quot;?&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/17/tampermonkey%E8%84%9A%E6%9C%AC/" data-id="ckuvddn2g002fggdtdylk2fr1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/17/vim%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          适合前端的vim配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/17/Node%E8%B0%83%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node调试</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/element/">element</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/17/canvas/">canvas</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
