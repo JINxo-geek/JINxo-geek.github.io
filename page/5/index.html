@@ -1,424 +1,240 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hexo</title><meta name="author" content="JINxo"><meta name="copyright" content="JINxo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/page/5/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="JINxo">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-10-18 20:41:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    <article id="post-chrome开发者工具" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" class="article-date">
-  <time datetime="2017-05-05T06:21:52.000Z" itemprop="datePublished">2017-05-05</time>
-</a>
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/">chrome</a>
-    </h1>
-  
-
-      </header>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用好chrome是必不可少的</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/05/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" data-id="ckuvddn1t001cggdt7njfcczq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">46</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2017/05/05/ES6%E5%85%AD/" title="函数扩展二"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="函数扩展二"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/05/05/ES6%E5%85%AD/" title="函数扩展二">函数扩展二</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-05T06:21:52.000Z" title="Created 2017-05-05 14:21:52">2017-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ES6/">ES6</a></span></div><div class="content">ES6学习
 
 
-  
-    <article id="post-es6一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/05/es6%E4%B8%80/" class="article-date">
-  <time datetime="2017-05-05T06:21:52.000Z" itemprop="datePublished">2017-05-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ES6/">ES6</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/es6%E4%B8%80/">let和const</a>
-    </h1>
-  
+要点
+指定箭头函数的上下文
+尾调用
+调用帧和调用栈
+尾递归对递归操作意义重大
+蹦床函数将递归执行转为循环执行
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ES6学习</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/05/es6%E4%B8%80/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/05/05/es6%E4%B8%80/" data-id="ckuvddn1y001nggdt8tg6a36k" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+双冒号运算符箭头函数可以绑定this 对象，大大减少了显示绑定this 对象的写法（call、apply、bind）。但是，箭头函数并不适用于所有场合，所以现在有一个提案，提出了“函数绑定”（function bind）运算符，用来取代call、apply、bind调用。 
+函数绑定运算符是并排的两个冒号(::),双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面。 
+123456789101112foo::bar;// 等同于bar.bind(foo);foo::bar(...arguments);// 等同于bar.apply(foo, arguments);const hasOwnProperty = Object.prototype.hasOwnProperty;function hasOwn(obj, key) &#123;  return obj::hasOwnProperty ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2017/05/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" title="chrome"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="chrome"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/05/05/chrome%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7/" title="chrome">chrome</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-05T06:21:52.000Z" title="Created 2017-05-05 14:21:52">2017-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a></span></div><div class="content">使用好chrome是必不可少的
 
 
-  
-    <article id="post-字符串查找" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE/" class="article-date">
-  <time datetime="2017-05-05T06:21:52.000Z" itemprop="datePublished">2017-05-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-  </div>
+介绍chrome的一些不为人知的功能Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。
+话不多话，我们开始。
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE/">字符串查询</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>简单的字符串查询算法</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/05/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE/" data-id="ckuvddn3e003jggdtgp6jdedg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+代码格式化
+强制DOM状态
+动画
+直接编辑网页
+网络限速
+复制HTTP请求
+抓个带手机的图
+设置断点
+关于Console中的技巧
+关于console对象
+关于快捷键
 
 
-  
-    <article id="post-虚拟内存" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/05/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" class="article-date">
-  <time datetime="2017-05-05T06:21:52.000Z" itemprop="datePublished">2017-05-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">虚拟内存</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/05/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/05/05/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" data-id="ckuvddn3l003wggdtbnfw7coh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-阅读习惯" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/05/%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF/" class="article-date">
-  <time datetime="2017-05-05T06:21:52.000Z" itemprop="datePublished">2017-05-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF/">阅读</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如何阅读</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/05/%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/05/05/%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF/" data-id="ckuvddn3p0044ggdt151i4vb8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/habit/" rel="tag">habit</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/element/">element</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/canvas/">canvas</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+代码格式化有很多css/js的代码都会被 minify 掉，你可以点击代码窗口左下角的那个 { } 标签，chrome会帮你给格式化掉。
+强制DOM状态有些HTML的DOM是有状态的，比如&lt;a&gt; 标签，其会有 active，hover， focus，visited这些状态，有时候，我们的CSS会来定关不同状态的样式，在分析网页查看网页上DOM的CSS样式时，我们可以点击CSS样式上的 :hov 这个小按钮来强制这个DOM的状态。
+动画现在的网页上都会有一些动画效果。在Chrome的开发者工具中，通过右上角的菜 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2017/05/05/es6%E4%B8%80/" title="let和const"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="let和const"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/05/05/es6%E4%B8%80/" title="let和const">let和const</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-05T06:21:52.000Z" title="Created 2017-05-05 14:21:52">2017-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ES6/">ES6</a></span></div><div class="content">ES6学习
 
 
 
 
-<script src="/js/script.js"></script>
+let和constES6新增let命令，声明变量，用法类似var,但是所声明的变量只在let命令所在的代码块有效。
+123456&#123;    let a = 10;    var b = 1;&#125;a//is nout definedb//1
+
+for循环的计算器就很适合let命令。
+12345for(let i = 0;i&lt;10;i++)&#123;    &#125;console.log(i);//i is not defined
+
+i因为是let声明的，只在循环体内有效。
+1234567var a = [];for (var i = 0; i &lt; 10; i++) &#123;  a[i] = function () &#123;    console.log(i);  &#125;;&#125;a[6](); // 10
+
+上面代码中，变量i是var命令声明的，在全局范围内都有效，所以全局只有一个变量i。每一次循环，变量i的值都会发生改变，而循环内被赋给数组a的函数内部的console.log(i)，里面的i指向的就是全局的i。也就 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2017/05/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE/" title="字符串查询"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字符串查询"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/05/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE/" title="字符串查询">字符串查询</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-05T06:21:52.000Z" title="Created 2017-05-05 14:21:52">2017-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">简单的字符串查询算法
 
 
 
+Problem StatementFor a given source string and a target string, you should output the first
+index(from 0) of target string in source string.
+If target does not exist in source, just return -1.
+ExampleIf source = &quot;source&quot; and target = &quot;target&quot;, return -1.
+If source = &quot;abcdabcdefg&quot; and target = &quot;bcd&quot;, return 1.
+题解对于字符串查找问题,可以使用双重for循环解决,效率更高的则为KMP算法,双重 for 循环的使用较有讲究，因为这里需要考虑目标字符串比源字符串短的可能。对目标字符串的循环肯定是必要的，所以可以优化的地方就在于如何访问源字符串了。简单直观的解法是利用源字符串的长度作 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2017/05/05/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" title="虚拟内存"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="虚拟内存"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/05/05/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" title="虚拟内存">虚拟内存</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-05T06:21:52.000Z" title="Created 2017-05-05 14:21:52">2017-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></span></div><div class="content">页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。
 
-  </div>
-</body>
-</html>
+
+1.页面文件（pagefile.sys）也称虚拟内存，就是在硬盘上拿出（设定出）一部分空间作为暂不被调用程序或叫“惰性”程序及相关数据的临时存放空间。
+因内存容量总是有限,而实际运行的程序会很多，若都塞在内存中会大量占用有限的内存资源，不利于系统正常、快速、流畅地调用、运行急需的程序及数据。于是系统就开辟出一部分硬盘空间将惰性程序及相关数据暂时存放于此，而让即将被调用的程序或称“活性”程序及数据存留在内存中方便马上调用；而页面文件中暂存的“惰性程序”及数据待CPU需要调用时再与内存交互，如此即为页面文件的工作原理。页面文件像内存一样起到中间暂存、交换作用又是硬盘空间的一部分，所以又叫虚拟内存。
+2。
+页面文件如同文件夹中常见文件一样，是实实在在存在的文件，只是为安全起见系统将其默认为隐藏文件，显示后一般可在系统盘根目录中见到名为pagefile.sys的文件，它就是页面文件。
+3。
+要修改页面文件（虚拟内存）的存放位置及大小，对XP而言 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2017/05/05/%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF/" title="阅读"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阅读"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/05/05/%E9%98%85%E8%AF%BB%E4%B9%A0%E6%83%AF/" title="阅读">阅读</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-05T06:21:52.000Z" title="Created 2017-05-05 14:21:52">2017-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></span></div><div class="content">如何阅读
+
+
+[TOC]
+怎么阅读
+早晨阅读
+阅读前运动
+阅读动机指定奖励
+预期与移开尽可能多的障碍,确保早晨起来时一起都可以直接进行不会分心
+公开记录每天的进度
+
+如何更聪明的学习
+让学习时间分成一部分一部分的组块,因为注意力集中的时间平均为25分钟到30分钟
+创造一个专注学习的空间,理由所身处的环境很大程度上决定着我们行为,更容易投入
+学习积极性,在学习之前先问自己,我要学习的是什么,学习内容归结为两类,概念和事实,概念比事实更重要
+
+
+最佳学习概念的方式,是确保你知道并用自己的话讲述出来,就是用这种方式测试以及更有积极性的学习,还有就是通过距离来说明,再最为重要的地方标记
+
+
+做笔记对模糊不清的地方进行一点补充,添加一些内容,方便更好的记住概念
+最好的学习方式就是靠教别人来学习,因为这是一种积极学习的方式,还能确保自己完全理解课题
+正确使用教科书,SQ3R方法:
+
+
+纵览 提问 阅读 诵读 回顾
+
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JINxo</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">46</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/10/18/%E6%9F%90%E9%9F%B3%E6%B8%B8%E8%B8%A9%E7%82%B9%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="-某音游踩点脚本开发"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="-某音游踩点脚本开发"/></a><div class="content"><a class="title" href="/2021/10/18/%E6%9F%90%E9%9F%B3%E6%B8%B8%E8%B8%A9%E7%82%B9%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="-某音游踩点脚本开发">-某音游踩点脚本开发</a><time datetime="2021-10-18T12:33:29.582Z" title="Created 2021-10-18 20:33:29">2021-10-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/ES6%E4%B8%89/" title="字符扩展"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字符扩展"/></a><div class="content"><a class="title" href="/2021/10/17/ES6%E4%B8%89/" title="字符扩展">字符扩展</a><time datetime="2021-10-17T14:55:17.578Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/es6%E4%BA%8C/" title="解构赋值"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解构赋值"/></a><div class="content"><a class="title" href="/2021/10/17/es6%E4%BA%8C/" title="解构赋值">解构赋值</a><time datetime="2021-10-17T14:55:17.557Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/element/" title="element"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="element"/></a><div class="content"><a class="title" href="/2021/10/17/element/" title="element">element</a><time datetime="2021-10-17T14:55:17.524Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/Electron/" title="Electron搭建node桌面应用"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Electron搭建node桌面应用"/></a><div class="content"><a class="title" href="/2021/10/17/Electron/" title="Electron搭建node桌面应用">Electron搭建node桌面应用</a><time datetime="2021-10-17T14:55:17.519Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            <a class="card-more-btn" href="/categories/" title="More">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ES6/"><span class="card-category-list-name">ES6</span><span class="card-category-list-count">17</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/habit/"><span class="card-category-list-name">habit</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/node/"><span class="card-category-list-name">node</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/vue/"><span class="card-category-list-name">vue</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/"><span class="card-category-list-name">习惯</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">前端工具</span><span class="card-category-list-count">3</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/"><span class="card-category-list-name">vim</span><span class="card-category-list-count">1</span></a></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/ES6/" style="font-size: 1.5em; color: #99a9bf">ES6</a> <a href="/tags/Electron/" style="font-size: 1.1em; color: #999">Electron</a> <a href="/tags/JQuery/" style="font-size: 1.26em; color: #999fa8">JQuery</a> <a href="/tags/Node/" style="font-size: 1.1em; color: #999">Node</a> <a href="/tags/element/" style="font-size: 1.18em; color: #999ca1">element</a> <a href="/tags/habit/" style="font-size: 1.26em; color: #999fa8">habit</a> <a href="/tags/javascript/" style="font-size: 1.1em; color: #999">javascript</a> <a href="/tags/koa/" style="font-size: 1.1em; color: #999">koa</a> <a href="/tags/koa2/" style="font-size: 1.1em; color: #999">koa2</a> <a href="/tags/node/" style="font-size: 1.26em; color: #999fa8">node</a> <a href="/tags/vue/" style="font-size: 1.34em; color: #99a3b0">vue</a> <a href="/tags/vue-js/" style="font-size: 1.1em; color: #999">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.42em; color: #99a6b7">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.26em; color: #999fa8">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 1.26em; color: #999fa8">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 1.1em; color: #999">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">算法</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">脚本开发</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">October 2021</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/07/"><span class="card-archive-list-date">July 2018</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/05/"><span class="card-archive-list-date">May 2017</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">46</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-10-18T12:41:14.599Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By JINxo</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,857 +1,244 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hexo</title><meta name="author" content="JINxo"><meta name="copyright" content="JINxo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="JINxo">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-10-18 20:41:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-代码查找-md" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/%E4%BB%A3%E7%A0%81%E6%9F%A5%E6%89%BE-md/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.440Z" itemprop="datePublished">2021-10-17</time>
-</a>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ES6/">ES6</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/%E4%BB%A3%E7%A0%81%E6%9F%A5%E6%89%BE-md/">如何在网上搜索代码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <span id="more"></span> 
-
-<p><strong>代码搜索网站：</strong></p>
-<ol>
-<li>代码：<br><a target="_blank" rel="noopener" href="https://github.com/search">GitHub</a><br><a target="_blank" rel="noopener" href="http://www.codase.com/">Codase</a><br><a target="_blank" rel="noopener" href="http://code.ohloh.net/">Ohloh</a><br><a target="_blank" rel="noopener" href="http://www.krugle.com/">krugle</a><br><a target="_blank" rel="noopener" href="http://www.merobase.com/">Merobase Component Finder</a><br><a target="_blank" rel="noopener" href="https://code.google.com/archive/">Google Code Archive</a></li>
-<li><a target="_blank" rel="noopener" href="http://symbolhound.com/">SymbolHound</a><br>可以搜索特殊符号的搜索引擎，程序员的福音，遇到 Bash、正则之类的问题时候的利器！</li>
-<li><a target="_blank" rel="noopener" href="http://www.haskell.org/hoogle/">Hoogle</a><br>Haskell 的专用函数搜索引擎，妈妈再也不用担心我的 Functional Programming</li>
-<li><a target="_blank" rel="noopener" href="http://rseek.org/">RSeek.org R-project Search Engine</a><br>R 语言专用搜索。</li>
-<li><a target="_blank" rel="noopener" href="http://www.findjar.com/">findjar.com</a><br>JAR 搜索引擎，对 Java 编程有帮助。</li>
-<li><a target="_blank" rel="noopener" href="http://research.microsoft.com/en-us/default.aspx">Microsoft Research</a><br>微软内部搜索，好东西多多，经常会发现 Google 学术搜不到的技术文献</li>
-<li>针对 SEO 排名的知识搜索引擎：<a target="_blank" rel="noopener" href="http://www.skyh.cn/">SEO优化网</a>，完全在线学习 + 公式化结构化的 SEO 搜索算法</li>
-<li><a target="_blank" rel="noopener" href="https://asm.ca.com/zh_cn/ping.php">CA App Synthetic Monitor网站监控服务</a><br>从世界各地查询网站的 Ping 结果。</li>
-</ol>
-<p><strong>Github代码搜索技巧：</strong></p>
-<p>很多人搜索github，但是芸芸众生，要找到自己想要的项目犹如海底捞针一般，今天教大家几项神技，可以快速找到自己想要的内容。</p>
-<p>1、按star数目搜索，比如<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/18">JavaScript</a>，要求星数，这样就能获取star数目最多的项目</p>
-<p><img src="https://img-blog.csdn.net/20160518121352135?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>2、follow一些github上面的大牛</p>
-<p>请登录：<a target="_blank" rel="noopener" href="https://github-ranking.com/">https://github-ranking.com/</a></p>
-<p>国内大牛：<a target="_blank" rel="noopener" href="http://outofmemory.cn/github/">http://outofmemory.cn/github/</a></p>
-<p>这里是搜索名人的网址：<a target="_blank" rel="noopener" href="https://github.com/search">https://github.com/search</a></p>
-<p>高级搜索：<a target="_blank" rel="noopener" href="https://github.com/search/advanced">https://github.com/search/advanced</a></p>
-<p>3、Awesome + 你的关键字：搜索一些优秀的框架、教程、项目等</p>
-<p><img src="https://img-blog.csdn.net/20160518121402338?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
-<p>4、看一些搜索技巧，设定条件进行搜索</p>
-<p>地址：<a target="_blank" rel="noopener" href="https://help.github.com/articles/searching-repositories/">https://help.github.com/articles/searching-repositories/</a></p>
-<p>5、通过readme看看人家是否发出pull request</p>
-<p>看看这篇文章：<a target="_blank" rel="noopener" href="http://blog.csdn.net/qianlong4526888/article/details/11529981">http://blog.csdn.net/qianlong4526888/article/details/11529981</a></p>
-<p>6、看explore推荐</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/explore">https://github.com/explore</a></p>
-<p>7、看看其他</p>
-<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_4e60b09d0102vcso.html">http://blog.sina.com.cn/s/blog_4e60b09d0102vcso.html</a></p>
-<p>8、直接github上搜fackbook或者其他，可以看到他们的最新作品</p>
-<h6 id="github是一个非常丰富的资源，但是面对这丰富的资源很多人不知到怎么使用，更谈不上怎么贡献给他，我们需要使用github就要学习使用他的方法，学会了使用的方法，接受了他的这种观点我们才会慢慢的给他贡献自己的力量，这是我自己在学习的时候的一个笔记。现在分享给大家希望能够对一些人有帮助。"><a href="#github是一个非常丰富的资源，但是面对这丰富的资源很多人不知到怎么使用，更谈不上怎么贡献给他，我们需要使用github就要学习使用他的方法，学会了使用的方法，接受了他的这种观点我们才会慢慢的给他贡献自己的力量，这是我自己在学习的时候的一个笔记。现在分享给大家希望能够对一些人有帮助。" class="headerlink" title="github是一个非常丰富的资源，但是面对这丰富的资源很多人不知到怎么使用，更谈不上怎么贡献给他，我们需要使用github就要学习使用他的方法，学会了使用的方法，接受了他的这种观点我们才会慢慢的给他贡献自己的力量，这是我自己在学习的时候的一个笔记。现在分享给大家希望能够对一些人有帮助。"></a>github是一个非常丰富的资源，但是面对这丰富的资源很多人不知到怎么使用，更谈不上怎么贡献给他，我们需要使用github就要学习使用他的方法，学会了使用的方法，接受了他的这种观点我们才会慢慢的给他贡献自己的力量，这是我自己在学习的时候的一个笔记。现在分享给大家希望能够对一些人有帮助。</h6><h6 id=""><a href="#" class="headerlink" title=""></a></h6><h6 id="Search-Searching-code"><a href="#Search-Searching-code" class="headerlink" title="Search / Searching code"></a><a target="_blank" rel="noopener" href="https://help.github.com/categories/search">Search</a> / Searching code</h6><p>github搜索之代码搜索</p>
-<h2 id="Searching-code"><a href="#Searching-code" class="headerlink" title="Searching code"></a>Searching code</h2><p>代码搜索</p>
-<p>To search for code, use the following search qualifiers in any combination.</p>
-<p><strong>Tip:</strong> There’s a list of <a target="_blank" rel="noopener" href="https://help.github.com/articles/search-syntax">search syntaxes</a> you can add to any search qualifier to further improve your results.</p>
-<h3 id="Considerations-for-code-search"><a href="#Considerations-for-code-search" class="headerlink" title="Considerations for code search"></a>Considerations for code search</h3><p>Due to the complexity of searching code, there are a few restrictions on how searches are performed:</p>
-<ul>
-<li>Only the <em>default branch</em> is considered. In most cases, this will be the <code>master</code> branch.</li>
-<li>Only files smaller than 384 KB are searchable.</li>
-<li>You must always include at least one search term when searching source code. For example, searching for <a target="_blank" rel="noopener" href="https://github.com/search?utf8=%E2%9C%93&q=language:go&type=Code"><code>language:go</code></a> is not valid, while <a target="_blank" rel="noopener" href="https://github.com/search?utf8=%E2%9C%93&q=amazing+language:go&type=Code"><code>amazinglanguage:go</code></a> is.</li>
-<li>At most, search results can show two fragments from the same file, but there may be more results within the file.</li>
-<li>You can’t use the following wildcard characters as part of your search query:<code>., : ; / \ </code> ‘ “ = * ! ? # $ &amp; + ^ | ~ &lt; &gt; ( ) { } []`. The search will simply ignore these symbols.</li>
-</ul>
-<p>以上是代码搜索中需要注意的一些问题</p>
-<p>默认搜索是从master分支搜索代码</p>
-<p>只有小于384k的代码才是可以搜索到的</p>
-<p>搜索的时候必须包含至少一个搜索关键词 <a target="_blank" rel="noopener" href="https://github.com/search?utf8=%E2%9C%93&q=amazing+language:go&type=Code"><code>如amazing language:go</code></a></p>
-<p>搜索语句不能有特殊字符如<code>., : ; / \ </code> ‘ “ = * ! ? # $ &amp; + ^ | ~ &lt; &gt; ( ) { } []`.</p>
-<h3 id="Scope-the-search-fields"><a href="#Scope-the-search-fields" class="headerlink" title="Scope the search fields"></a>Scope the search fields</h3><p>指定搜索方式</p>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=octocat+in:file&type=Code">octocat in:file</a></p>
-<p>Matches code where “octocat” appears in the file contents.</p>
-<p>搜索文件中有octocat的代码</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=octocat+in:path&type=Code">octocat in:path</a></p>
-<p>Matches code where “octocat” appears in the path name.</p>
-<p>搜索路径中有octocat的代码</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=octocat+in:file,path&type=Code">octocat in:file,path</a></p>
-<p>Matches code where “octocat” appears in the file contents or the path name.</p>
-<p>搜索路径中有octocat的代码或者文件中有octocat的代码</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=display+language:scss&type=Code">display language:scss</a></p>
-<p>Matches code with the word “display,” that’s marked as being SCSS.</p>
-<p>搜索用scss写的包含display的代码</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=Integer&type=Code">Integer</a></p>
-<p>Matches code with the word “Integer”.</p>
-<p>搜索包含Integer的字段</p>
-<p>Search by language通过语言搜索代码You can search for code based on what language it’s written in. For example:</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=element+language:xml+size:100&type=Code">element language:xml size:100</a></p>
-<p>Matches code with the word “element” that’s marked as being XML and has exactly 100 bytes.</p>
-<p>搜索大小为100字节的xml代码</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=user:mozilla+language:markdown&type=Code">user:mozilla language:markdown</a></p>
-<p>Matches code from all @mozilla’s repositories that’s marked as Markdown.</p>
-<p>搜索mozilla用户下用markdown写的代码</p>
-<p>Search by the number of forks the parent repository has通过fork的数量或者是否有父节点的方式搜索 If you would like forked results to appear, add the <strong>fork:true</strong> qualifier. For example: </p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=android+language:java+fork:true&type=Code">android language:java fork:true</a></p>
-<p>Matches code in a forked repository with the word “android” that’s written in Java.</p>
-<p>搜索用java写的 android相关的代码并且被fork过</p>
-<p>The <strong>size</strong> qualifier filters results based on the size of the file in which the code is found. For example:</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=function+size:%3E10000+language:python&type=Code">function size:&gt;10000 language:python</a></p>
-<p>Matches code with the word “function,” written in Python, in files that are larger than 10 KB.</p>
-<p>搜索与function相关的python代码，文件大小超过10kb</p>
-<p>Search by the location of a file within the repository按照目录结构搜索By including the <strong>path</strong> qualifier, you specify that resulting source code must appear at a specific location in a repository. Subfolders are considered during the search, so be as specific as possible. For example:</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=console+path:">console path:app/public language:javascript</a></p>
-<p>Finds JavaScript files with the word “console” in an <em>app/public</em> directory (even if they reside in<em>app/public/js/form-validators</em>).</p>
-<p>在<em>app/public</em> directory目录下搜索console关键字</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=form+path:cgi-bin+language:perl&type=Code">form path:cgi-bin language:perl</a></p>
-<p>Finds Perl files under <em>cgi-bin</em> with the word “form” in them.</p>
-<p>搜索cgi-bin目录下包含form的perl代码</p>
-<p>Search by filename通过文件名搜索You can use the <strong>filename</strong> qualifier if there’s a specific file you’re looking for. For example:</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=filename:.vimrc+commands&type=Code">filename:.vimrc commands</a></p>
-<p>Finds <em>.vimrc</em> files with the word “commands” in them.</p>
-<p>搜索 文件名匹配*.vimrc* 并且包含commands的代码</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=minitest+filename:test_helper+path:test+language:ruby&type=Code">minitest filename:test_helper path:test language:ruby</a></p>
-<p>Finds Ruby files containing the word “minitest” named <em>test_helper</em> within the <em>test</em> directory.</p>
-<p>在test目录中搜索包含minitest且文件名匹配”<em>test_helper</em>“的代码</p>
-<p>Search by the file extension根据扩展名来搜索代码The <strong>extension</strong> qualifier matches code files with a certain extension. For example:</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=form+path:cgi-bin+extension:pm&type=Code">form path:cgi-bin extension:pm</a></p>
-<p>Matches code with the word “form,” under <em>cgi-bin</em>, with the <em>.pm</em> extension.</p>
-<p>搜索cgi-bin目录下以pm为扩展名的代码</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=icon+size:%3E200000+extension:css&type=Code">icon size:&gt;200000 extension:css</a></p>
-<p>Finds files larger than 200 KB that end in <em>.css</em> and have the word “icon” in them.</p>
-<p>搜索超过200kb包含icon的css代码</p>
-<p>Search within a user’s or organization’s repositories通过用户或者组织来查找To grab a list of code from all repositories owned by a certain user or organization, you can use the <strong>user</strong>syntax. For getting a list of code from a specific repository, you can use the <strong>repo</strong> syntax. For example:</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/search?q=user:github+extension:rb&type=Code">user:github extension:rb</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/%E4%BB%A3%E7%A0%81%E6%9F%A5%E6%89%BE-md/" data-id="ckuvddn380038ggdtaybe7l7h" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-大白话讲解Promise" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/%E5%A4%A7%E7%99%BD%E8%AF%9D%E8%AE%B2%E8%A7%A3Promise/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.433Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作为ES6中最重要的特性之一，我们有必要掌握并理解透彻。本文将由浅到深，讲解Promise的基本概念与使用方法。</p>
-<h2 id="ES6-Promise-先拉出来遛遛"><a href="#ES6-Promise-先拉出来遛遛" class="headerlink" title="ES6 Promise 先拉出来遛遛"></a><strong>ES6 Promise 先拉出来遛遛</strong></h2><p>复杂的概念先不讲，我们先简单粗暴地把Promise用一下，有个直观感受。那么第一个问题来了，Promise是什么玩意呢？是一个类？对象？数组？函数？</p>
-<p>别猜了，直接打印出来看看吧，console.dir(Promise)，就这么简单粗暴。</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311003722741-755677508.png" alt="img"></p>
-<p>这么一看就明白了，Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有then、catch等同样很眼熟的方法。这么说用Promise new出来的对象肯定就有then、catch方法喽，没错。</p>
-<p>那就new一个玩玩吧。</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//做一些异步操作</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;执行完成&#x27;</span>);</span><br><span class="line">        resolve(<span class="string">&#x27;随便什么数据&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>Promise的构造函数接收一个参数，是函数，并且传入两个参数：resolve，reject，分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数。其实这里用“成功”和“失败”来描述并不准确，按照标准来讲，resolve是将Promise的状态置为fullfiled，reject是将Promise的状态置为rejected。不过在我们开始阶段可以先这么理解，后面再细究概念。</p>
-<p>在上面的代码中，我们执行了一个异步操作，也就是setTimeout，2秒后，输出“执行完成”，并且调用resolve方法。</p>
-<p>运行代码，会在2秒后输出“执行完成”。注意！我只是new了一个对象，并没有调用它，我们传进去的函数就已经执行了，这是需要注意的一个细节。所以我们用Promise的时候一般是包在一个函数中，在需要的时候去运行这个函数，如：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">runAsync</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//做一些异步操作</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;执行完成&#x27;</span>);</span><br><span class="line">            resolve(<span class="string">&#x27;随便什么数据&#x27;</span>);</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;            </span><br><span class="line">&#125;</span><br><span class="line">runAsync()</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>这时候你应该有两个疑问：1.包装这么一个函数有毛线用？2.resolve(‘随便什么数据’);这是干毛的？</p>
-<p>我们继续来讲。在我们包装好的函数最后，会return出Promise对象，也就是说，执行这个函数我们得到了一个Promise对象。还记得Promise对象上有then、catch方法吧？这就是强大之处了，看下面的代码：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">runAsync().then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="comment">//后面可以用传过来的数据做些其他操作</span></span><br><span class="line">    <span class="comment">//......</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>在runAsync()的返回上直接调用then方法，then接收一个参数，是函数，并且会拿到我们在runAsync中调用resolve时传的的参数。运行这段代码，会在2秒后输出“执行完成”，紧接着输出“随便什么数据”。</p>
-<p>这时候你应该有所领悟了，原来then里面的函数就跟我们平时的回调函数一个意思，能够在runAsync这个异步任务执行完成之后被执行。这就是Promise的作用了，简单来讲，就是能把原来的回调写法分离出来，在异步操作执行完后，用链式调用的方式执行回调函数。</p>
-<p>你可能会不屑一顾，那么牛逼轰轰的Promise就这点能耐？我把回调函数封装一下，给runAsync传进去不也一样吗，就像这样：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">runAsync</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;执行完成&#x27;</span>);</span><br><span class="line">        callback(<span class="string">&#x27;随便什么数据&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">runAsync(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>效果也是一样的，还费劲用Promise干嘛。那么问题来了，有多层回调该怎么办？如果callback也是一个异步操作，而且执行完后也需要有相应的回调函数，该怎么办呢？总不能再定义一个callback2，然后给callback传进去吧。而Promise的优势在于，可以在then方法中继续写Promise对象并返回，然后继续调用then来进行回调操作。</p>
-<h2 id="链式操作的用法"><a href="#链式操作的用法" class="headerlink" title="链式操作的用法"></a><strong>链式操作的用法</strong></h2><p>所以，从表面上看，Promise只是能够简化层层回调的写法，而实质上，Promise的精髓是“状态”，用维护状态、传递状态的方式来使得回调函数能够及时调用，它比传递callback函数要简单、灵活的多。所以使用Promise的正确场景是这样的：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">runAsync1()</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="keyword">return</span> runAsync2();</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="keyword">return</span> runAsync3();</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>这样能够按顺序，每隔两秒输出每个异步回调中的内容，在runAsync2中传给resolve的数据，能在接下来的then方法中拿到。运行结果如下：</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311004311507-221152206.png" alt="img"></p>
-<p>猜猜runAsync1、runAsync2、runAsync3这三个函数都是如何定义的？没错，就是下面这样（代码较长请自行展开）：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">runAsync1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//做一些异步操作</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;异步任务1执行完成&#x27;</span>);</span><br><span class="line">            resolve(<span class="string">&#x27;随便什么数据1&#x27;</span>);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;            </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">runAsync2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//做一些异步操作</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;异步任务2执行完成&#x27;</span>);</span><br><span class="line">            resolve(<span class="string">&#x27;随便什么数据2&#x27;</span>);</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;            </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">runAsync3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//做一些异步操作</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;异步任务3执行完成&#x27;</span>);</span><br><span class="line">            resolve(<span class="string">&#x27;随便什么数据3&#x27;</span>);</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>在then方法中，你也可以直接return数据而不是Promise对象，在后面的then中就可以接收到数据了，比如我们把上面的代码修改成这样：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">runAsync1()</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="keyword">return</span> runAsync2();</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;直接返回数据&#x27;</span>;  <span class="comment">//这里直接返回数据</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>那么输出就变成了这样：</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311004444163-67067993.png" alt="img"></p>
-<h2 id="reject的用法"><a href="#reject的用法" class="headerlink" title="reject的用法"></a><strong>reject的用法</strong></h2><p>到这里，你应该对“Promise是什么玩意”有了最基本的了解。那么我们接着来看看ES6的Promise还有哪些功能。我们光用了resolve，还没用reject呢，它是做什么的呢？事实上，我们前面的例子都是只有“执行成功”的回调，还没有“失败”的情况，reject的作用就是把Promise的状态置为rejected，这样我们在then中就能捕捉到，然后执行“失败”情况的回调。看下面的代码。</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNumber</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//做一些异步操作</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> num = <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random()*<span class="number">10</span>); <span class="comment">//生成1-10的随机数</span></span><br><span class="line">            <span class="keyword">if</span>(num&lt;=<span class="number">5</span>)&#123;</span><br><span class="line">                resolve(num);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                reject(<span class="string">&#x27;数字太大了&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;            </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getNumber()</span><br><span class="line">.then(</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;resolved&#x27;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">reason, data</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;rejected&#x27;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(reason);</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>getNumber函数用来异步获取一个数字，2秒后执行完成，如果数字小于等于5，我们认为是“成功”了，调用resolve修改Promise的状态。否则我们认为是“失败”了，调用reject并传递一个参数，作为失败的原因。</p>
-<p>运行getNumber并且在then中传了两个参数，then方法可以接受两个参数，第一个对应resolve的回调，第二个对应reject的回调。所以我们能够分别拿到他们传过来的数据。多次运行这段代码，你会随机得到下面两种结果：</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311004607960-1156803894.png" alt="img"> 或者 <img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311004616257-1024778840.png" alt="img"></p>
-<h2 id="catch的用法"><a href="#catch的用法" class="headerlink" title="catch的用法"></a><strong>catch的用法</strong></h2><p>我们知道Promise对象除了then方法，还有一个catch方法，它是做什么用的呢？其实它和then的第二个参数一样，用来指定reject的回调，用法是这样：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getNumber()</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;resolved&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;rejected&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(reason);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>效果和写在then的第二个参数里面一样。不过它还有另外一个作用：在执行resolve的回调（也就是上面then中的第一个参数）时，如果抛出异常了（代码出错了），那么并不会报错卡死js，而是会进到这个catch方法中。请看下面的代码：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getNumber()</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;resolved&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="built_in">console</span>.log(somedata); <span class="comment">//此处的somedata未定义</span></span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;rejected&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(reason);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>在resolve的回调中，我们console.log(somedata);而somedata这个变量是没有被定义的。如果我们不用Promise，代码运行到这里就直接在控制台报错了，不往下运行了。但是在这里，会得到这样的结果：</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311004747147-1508291069.png" alt="img"></p>
-<p>也就是说进到catch方法里面去了，而且把错误原因传到了reason参数中。即便是有错误的代码也不会报错了，这与我们的try/catch语句有相同的功能。</p>
-<h2 id="all的用法"><a href="#all的用法" class="headerlink" title="all的用法"></a><strong>all的用法</strong></h2><p>Promise的all方法提供了并行执行异步操作的能力，并且在所有异步操作执行完后才执行回调。我们仍旧使用上面定义好的runAsync1、runAsync2、runAsync3这三个函数，看下面的例子：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span></span><br><span class="line">.all([runAsync1(), runAsync2(), runAsync3()])</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>用Promise.all来执行，all接收一个数组参数，里面的值最终都算返回Promise对象。这样，三个异步操作的并行执行的，等到它们都执行完后才会进到then里面。那么，三个异步操作返回的数据哪里去了呢？都在then里面呢，all会把所有异步操作的结果放进一个数组中传给then，就是上面的results。所以上面代码的输出结果就是：</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311004843491-346782307.png" alt="img"></p>
-<p>有了all，你就可以并行执行多个异步操作，并且在一个回调中处理所有的返回数据，是不是很酷？有一个场景是很适合用这个的，一些游戏类的素材比较多的应用，打开网页时，预先加载需要用到的各种资源如图片、flash以及各种静态文件。所有的都加载完后，我们再进行页面的初始化。</p>
-<h2 id="race的用法"><a href="#race的用法" class="headerlink" title="race的用法"></a><strong>race的用法</strong></h2><p>all方法的效果实际上是「谁跑的慢，以谁为准执行回调」，那么相对的就有另一个方法「谁跑的快，以谁为准执行回调」，这就是race方法，这个词本来就是赛跑的意思。race的用法与all一样，我们把上面runAsync1的延时改为1秒来看一下：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span></span><br><span class="line">.race([runAsync1(), runAsync2(), runAsync3()])</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(results);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>这三个异步操作同样是并行执行的。结果你应该可以猜到，1秒后runAsync1已经执行完了，此时then里面的就执行了。结果是这样的：</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311004946022-706413123.png" alt="img"></p>
-<p>你猜对了吗？不完全，是吧。在then里面的回调开始执行时，runAsync2()和runAsync3()并没有停止，仍旧再执行。于是再过1秒后，输出了他们结束的标志。</p>
-<p>这个race有什么用呢？使用场景还是很多的，比如我们可以用race给某个异步请求设置超时时间，并且在超时后执行相应的操作，代码如下：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求某个图片资源</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">requestImg</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">        img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            resolve(img);</span><br><span class="line">        &#125;</span><br><span class="line">        img.src = <span class="string">&#x27;xxxxxx&#x27;</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//延时函数，用于给请求计时</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            reject(<span class="string">&#x27;图片请求超时&#x27;</span>);</span><br><span class="line">        &#125;, <span class="number">5000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span></span><br><span class="line">.race([requestImg(), timeout()])</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(results);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(reason);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>requestImg函数会异步请求一张图片，我把地址写为”xxxxxx”，所以肯定是无法成功请求到的。timeout函数是一个延时5秒的异步操作。我们把这两个返回Promise对象的函数放进race，于是他俩就会赛跑，如果5秒之内图片请求成功了，那么遍进入then方法，执行正常的流程。如果5秒钟图片还未成功返回，那么timeout就跑赢了，则进入catch，报出“图片请求超时”的信息。运行结果如下：</p>
-<p><img src="https://images2015.cnblogs.com/blog/520134/201603/520134-20160311005040272-341718790.png" alt="img"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>ES6 Promise的内容就这些吗？是的，能用到的基本就这些。</p>
-<p>我怎么还见过done、finally、success、fail等，这些是啥？这些并不在Promise标准中，而是我们自己实现的语法糖。</p>
-<p>本文中所有异步操作均以setTimeout为例子，之所以不使用ajax是为了避免引起混淆，因为谈起ajax，很多人的第一反应就是jquery的ajax，而jquery又有自己的Promise实现。如果你理解了原理，就知道使用setTimeout和使用ajax是一样的意思。说起jquery，我不得不吐槽一句，jquery的Promise实现太过垃圾，各种语法糖把人都搞蒙了，我认为Promise之所以没有全面普及和jquery有很大的关系。后面我们会细讲jquery。</p>
-<p>关于Promise还有一些内容是需要讲的，限于篇幅，本文就只作ES6 Promise的讲解，接下来还会有大白话讲解系列：</p>
-<ul>
-<li>Promise/A+规范</li>
-<li>jquery中的Promise</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/%E5%A4%A7%E7%99%BD%E8%AF%9D%E8%AE%B2%E8%A7%A3Promise/" data-id="ckuvddn3g003nggdtffn4fgq4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue组件间的通信" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.427Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/">vue组件间通信</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" data-id="ckuvddn350034ggdt5jnb3imo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue自定义事件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vue%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.423Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vue%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/">vue自定义事件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue学习</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vue%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vue%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/" data-id="ckuvddn320032ggdte6z44cl7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue实例的属性和方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vue%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.419Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vue%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/">vue属性和方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue学习</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vue%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vue%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/" data-id="ckuvddn2u002sggdthjwn51c2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue开发经验" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.414Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">vue开发经验</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue学习</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" data-id="ckuvddn2x002vggdt7yjxbxc9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue的生命周期和jquery" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8Cjquery/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.404Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8Cjquery/">vue的生命周期和JQuery</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue学习</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8Cjquery/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8Cjquery/" data-id="ckuvddn2z002yggdtbuw0dbd7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue-router基础使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vue-router%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.397Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vue-router%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/">vue-router基础使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue-router基础使用</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vue-router%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vue-router%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" data-id="ckuvddn2r002pggdt788g5grr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vscode插件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vscode%E6%8F%92%E4%BB%B6/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.393Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vscode%E6%8F%92%E4%BB%B6/">vscode必备插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>工欲善其事必先利其器</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vscode%E6%8F%92%E4%BB%B6/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vscode%E6%8F%92%E4%BB%B6/" data-id="ckuvddn2o002lggdt5w5o79n8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vim配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/10/17/vim%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time datetime="2021-10-17T14:55:17.387Z" itemprop="datePublished">2021-10-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/17/vim%E9%85%8D%E7%BD%AE/">适合前端的vim配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vim插件配置</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/10/17/vim%E9%85%8D%E7%BD%AE/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/17/vim%E9%85%8D%E7%BD%AE/" data-id="ckuvddn2i002iggdt6q1iarba" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/habit/">habit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/">习惯</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/">vim</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/element/" rel="tag">element</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/habit/" rel="tag">habit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa/" rel="tag">koa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/koa2/" rel="tag">koa2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag">硬件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Electron/" style="font-size: 10px;">Electron</a> <a href="/tags/JQuery/" style="font-size: 14px;">JQuery</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/element/" style="font-size: 12px;">element</a> <a href="/tags/habit/" style="font-size: 14px;">habit</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/koa/" style="font-size: 10px;">koa</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/vue/" style="font-size: 16px;">vue</a> <a href="/tags/vue-js/" style="font-size: 10px;">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18px;">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 14px;">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 14px;">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 10px;">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/10/17/ES6%E4%B8%89/">字符扩展</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/es6%E4%BA%8C/">解构赋值</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/element/">element</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/Electron/">Electron搭建node桌面应用</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/17/canvas/">canvas</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">46</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/17/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AAvue%20component/" title="封装vue组件"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="封装vue组件"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AAvue%20component/" title="封装vue组件">封装vue组件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.445Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vue学习，封装组件
+
+
+为什么选择自己封装第三方库其实vue 写 component 相当简单和方便，github上有很多的 vue component 都只是简单的包装了一些 jquery 或者原生 js 的插件，但我个人是不太喜欢使用这些第三方封装的。理由如下： 
+
+很多第三方封装的组件参数配置项其实是有缺损的。如一些富文本或者图表组件，配置项远比你想想中的多得多，第三方封装组件很难覆盖全部所有配置。
+第三方组件的更新频率很难保证。很多第三方封装组件并不能一直和原始组件保持同步更新速度，万一原始组件更新了某个你需要的功能，但第三方并没有更新那岂不是很尴尬，而且很多第三方组件维护一段时间之后就不维护了。
+灵活性和针对性。还是那富文本来说，富文本在我司有很多定制化需求，我们需要将图片上传七牛，需要将图片打水印，需要很多针对业务的特殊需求，使用第三方包装的组件是不合适的，一般基于第三方封装的组件是很难拓展的。
+
+动手开工接下来我们一起改造包装一个js插件。只要几分钟就可以封装一个专属于你的vue component。封装对象：countUp.js，改造后结果 vue-countTo。  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/17/%E4%BB%A3%E7%A0%81%E6%9F%A5%E6%89%BE-md/" title="如何在网上搜索代码"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在网上搜索代码"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/%E4%BB%A3%E7%A0%81%E6%9F%A5%E6%89%BE-md/" title="如何在网上搜索代码">如何在网上搜索代码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.440Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ES6/">ES6</a></span></div><div class="content"> 
+
+代码搜索网站：
+
+代码：GitHubCodaseOhlohkrugleMerobase Component FinderGoogle Code Archive
+SymbolHound可以搜索特殊符号的搜索引擎，程序员的福音，遇到 Bash、正则之类的问题时候的利器！
+HoogleHaskell 的专用函数搜索引擎，妈妈再也不用担心我的 Functional Programming
+RSeek.org R-project Search EngineR 语言专用搜索。
+findjar.comJAR 搜索引擎，对 Java 编程有帮助。
+Microsoft Research微软内部搜索，好东西多多，经常会发现 Google 学术搜不到的技术文献
+针对 SEO 排名的知识搜索引擎：SEO优化网，完全在线学习 + 公式化结构化的 SEO 搜索算法
+CA App Synthetic Monitor网站监控服务从世界各地查询网站的 Ping 结果。
+
+Github代码搜索技巧：
+很多人搜索github，但是芸芸众生，要找到自己想要的项目犹如海底捞针一般，今天教大家几项神技，可以快速找到自己想要 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/17/%E5%A4%A7%E7%99%BD%E8%AF%9D%E8%AE%B2%E8%A7%A3Promise/" title="No title"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/%E5%A4%A7%E7%99%BD%E8%AF%9D%E8%AE%B2%E8%A7%A3Promise/" title="No title">No title</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.433Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span></div><div class="content">作为ES6中最重要的特性之一，我们有必要掌握并理解透彻。本文将由浅到深，讲解Promise的基本概念与使用方法。
+ES6 Promise 先拉出来遛遛复杂的概念先不讲，我们先简单粗暴地把Promise用一下，有个直观感受。那么第一个问题来了，Promise是什么玩意呢？是一个类？对象？数组？函数？
+别猜了，直接打印出来看看吧，console.dir(Promise)，就这么简单粗暴。
+
+这么一看就明白了，Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有then、catch等同样很眼熟的方法。这么说用Promise new出来的对象肯定就有then、catch方法喽，没错。
+那就new一个玩玩吧。
+
+1234567var p = new Promise(function(resolve, reject)&#123;    //做一些异步操作    setTimeout(function()&#123;        console.log(&#x27;执行完成&#x27;);        resolve(&#x27;随便什么数据&# ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/17/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" title="vue组件间通信"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue组件间通信"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" title="vue组件间通信">vue组件间通信</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.427Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vue
+
+
+
+vue组件间的作用域是孤立的，子组件的模板template 是不能直接获得父组件的数据的，需要使用特定的方法才能实现组件之间的数据传递。
+
+比如我们创建一个App.vue的父组件，一般我们会创建一个components文件夹放子组件。
+参考：https://www.cnblogs.com/wisewrong/p/6266038.html
+父组件向子组件传递数据核心子组件的props中声明父组件的变量。
+下面子组件 header.vue
+123456789101112131415161718192021222324252627&lt;template&gt;    &lt;header class=&quot;header&quot;&gt;        &lt;div id=&quot;logo&quot;&gt;&#123;&#123;logo&#125;&#125;&lt;/div&gt;       &lt;ul class=&quot;nav&quot;&gt;         &lt;li v-for=&quot;nav in navs&quot;&gt;&# ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/17/vue%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/" title="vue自定义事件"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue自定义事件"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/vue%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/" title="vue自定义事件">vue自定义事件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.423Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vue学习
+
+
+事件名跟组件和 prop 不同，事件名不会被用作一个 JavaScript 变量名或属性名，所以就没有理由使用 camelCase 或 PascalCase 了。 并且 v-on 事件监听器在 DOM 模板中会被自动转换为全小写 (因为 HTML 是大小写不敏感的)，所以 v-on:myEvent 将会变成 v-on:myevent——导致 myEvent 不可能被监听到。 推荐你始终使用 kebab-case 的事件名。 
+自定义组件的 v-model一个组件上的 v-model 默认会利用名为 value 的 prop 和名为 input 的事件，但是像单选框、复选框等类型的输入控件可能会将 value 特性用于不同的目的。model 选项可以用来避免这样的冲突： 
+12345678910111213141516Vue.component(&#x27;base-checkbox&#x27;, &#123;  model: &#123;    prop: &#x27;checked&#x27;,    event: &#x27;change&#x27;  &#125; ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/17/vue%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/" title="vue属性和方法"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue属性和方法"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/vue%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/" title="vue属性和方法">vue属性和方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.419Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vue学习
+
+
+参考：https://www.cnblogs.com/sorrowx/p/7967137.html
+我们实例了一个名为vm 的Vue实例后。
+先来看看属性
+1234567891011121314151617181920212223242526272829303132333435vm._uid // 自增的idvm._isVue // 标示是vue对象，避免被observevm._renderProxy // Proxy代理对象vm._self // 当前vm实例vm.$parent // 用于自定义子组件中，指向父组件的实例vm.$root // 指向根vm实例vm.$children // 当前组件的子组件实例数组vm.$refs vm._watcher = nullvm._inactive = nullvm._directInactive = falsevm._isMounted = false // 标识是否已挂载vm._isDestroyed = false // 标识是否已销毁vm._isBeingDestroyed = false // 标识是否正在销毁vm ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" title="vue开发经验"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue开发经验"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/vue%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/" title="vue开发经验">vue开发经验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.414Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vue学习
+
+
+一、善用watch的immediate属性这一点我在项目中也是这么写的。例如有请求需要再也没初始化的时候就执行一次，然后监听他的变化，很多人这么写：
+12345678created()&#123;    this.fetchPostList()&#125;,watch: &#123;    searchInputValue()&#123;        this.fetchPostList()    &#125;&#125;
+
+上面的这种写法我们可以完全如下写：
+123456watch: &#123;    searchInputValue:&#123;        handler: &#x27;fetchPostList&#x27;,        immediate: true    &#125;&#125;
+
+二、组件注册，值得借鉴一般情况下，我们组件如下写：
+12345678910111213import BaseButton from &#x27;./baseButton&#x27;import BaseIcon from &#x27;./baseIcon& ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/17/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8Cjquery/" title="vue的生命周期和JQuery"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue的生命周期和JQuery"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8Cjquery/" title="vue的生命周期和JQuery">vue的生命周期和JQuery</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.404Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vue学习
+
+
+前言
+原来一直使用的JQuery开发前端，突然想用vue开发单页面应用，发现vue中很难使用JQuery，因为Vue实例生命周期的原因，JQuery不能在一开始就找到DOM,jquery产生效果的时间是document.ready之后，和vue的生命周期mounted 钩子时间差不多，所以建议把jQuery中的代码放到mounted中。这样保证可以找到节点 。
+当然最好的方法是用vue数据驱动的思想重构成vue习惯的写法。比如用v-on监听DOM啦~
+
+
+Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载Dom、渲染→更新→渲染、卸载等一系列过程，我们称这是Vue的生命周期。通俗说就是Vue实例从创建到销毁的过程，就是生命周期。 在Vue的整个生命周期中，它提供了一系列的事件，可以让我们在事件触发时注册js方法，可以让我们用自己注册的js方法控制整个大局，在这些事件响应方法中的this直接指向的是vue的实例。 
+
+注意vue路由跳转后原组件被销毁，也就是说，JQuery在每次切换组件的时候都要重新绑定，所以写在钩子里面比较好。还有setInt ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/17/vue-router%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" title="vue-router基础使用"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue-router基础使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/vue-router%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" title="vue-router基础使用">vue-router基础使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.397Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/vue/">vue</a></span></div><div class="content">vue-router基础使用
+
+
+路由路由，其实就是指向的意思，当我们点击页面上的如home按钮时,页面就要显示home的内容，如果点击页面上的about 按钮，页面中就要显示about 的内容。Home按钮  =&gt; home 内容， about按钮 =&gt; about 内容，也可以说是一种映射. 所以在页面上有两个部分，一个是点击部分，一个是点击之后，显示内容的部分。  
+点击之后，怎么做到正确的对应，比如，我点击home 按钮，页面中怎么就正好能显示home的内容。这就要在js 文件中配置路由。
+　　路由中有三个基本的概念 route, routes, router。
+
+route：它是一条路由，由这个英文单词也可以看出来，它是单数， Home按钮  =&gt; home内容， 这是一条route,  about按钮 =&gt; about 内容， 这是另一条路由。 
+routes是一组路由，把上面的每一条路由组合起来，形成一个数组。[{home 按钮 =&gt;home内容 }， { about按钮 =&gt; about 内容}] 
+router 是一个机制，相当于一 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/17/vscode%E6%8F%92%E4%BB%B6/" title="vscode必备插件"><img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vscode必备插件"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/vscode%E6%8F%92%E4%BB%B6/" title="vscode必备插件">vscode必备插件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-10-17T14:55:17.393Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">工欲善其事必先利其器
+
+
+常用快捷键习惯了sublime可以装sublime keymap插件
+
+ctrl+shift+p 命令面板
+ctrl+` 切换终端
+选择文件的语言 先ctrl+k再按m
+
+如何让文件类型一目了然vscode-icons
+高效地管理项目Project Manager
+Functionality
+Manage your projects right inside Visual Studio Code. Easily access and switch between them.
+You can define your own Favorite projects, and auto-detect VSCode projects, Git, Mercurial and SVN repositories.
+自动格式化代码第一种：用默认的第一次用ctrl+k+第二次ctrl+d（效果不是很好，须先选中在使用）
+第二种：下载Beautify插件，然后在命令面板中 选择beautify file(可以绑定快捷键 默认绑定快捷键shift+ctrl+F)
+一键搭建各类语言的学习 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JINxo</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">46</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/10/18/%E6%9F%90%E9%9F%B3%E6%B8%B8%E8%B8%A9%E7%82%B9%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="-某音游踩点脚本开发"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="-某音游踩点脚本开发"/></a><div class="content"><a class="title" href="/2021/10/18/%E6%9F%90%E9%9F%B3%E6%B8%B8%E8%B8%A9%E7%82%B9%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="-某音游踩点脚本开发">-某音游踩点脚本开发</a><time datetime="2021-10-18T12:33:29.582Z" title="Created 2021-10-18 20:33:29">2021-10-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/ES6%E4%B8%89/" title="字符扩展"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字符扩展"/></a><div class="content"><a class="title" href="/2021/10/17/ES6%E4%B8%89/" title="字符扩展">字符扩展</a><time datetime="2021-10-17T14:55:17.578Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/es6%E4%BA%8C/" title="解构赋值"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解构赋值"/></a><div class="content"><a class="title" href="/2021/10/17/es6%E4%BA%8C/" title="解构赋值">解构赋值</a><time datetime="2021-10-17T14:55:17.557Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/element/" title="element"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="element"/></a><div class="content"><a class="title" href="/2021/10/17/element/" title="element">element</a><time datetime="2021-10-17T14:55:17.524Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/17/Electron/" title="Electron搭建node桌面应用"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Electron搭建node桌面应用"/></a><div class="content"><a class="title" href="/2021/10/17/Electron/" title="Electron搭建node桌面应用">Electron搭建node桌面应用</a><time datetime="2021-10-17T14:55:17.519Z" title="Created 2021-10-17 22:55:17">2021-10-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            <a class="card-more-btn" href="/categories/" title="More">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ES6/"><span class="card-category-list-name">ES6</span><span class="card-category-list-count">17</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/habit/"><span class="card-category-list-name">habit</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/node/"><span class="card-category-list-name">node</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/vue/"><span class="card-category-list-name">vue</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B9%A0%E6%83%AF/"><span class="card-category-list-name">习惯</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">前端工具</span><span class="card-category-list-count">3</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/vim/"><span class="card-category-list-name">vim</span><span class="card-category-list-count">1</span></a></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/ES6/" style="font-size: 1.5em; color: #99a9bf">ES6</a> <a href="/tags/Electron/" style="font-size: 1.1em; color: #999">Electron</a> <a href="/tags/JQuery/" style="font-size: 1.26em; color: #999fa8">JQuery</a> <a href="/tags/Node/" style="font-size: 1.1em; color: #999">Node</a> <a href="/tags/element/" style="font-size: 1.18em; color: #999ca1">element</a> <a href="/tags/habit/" style="font-size: 1.26em; color: #999fa8">habit</a> <a href="/tags/javascript/" style="font-size: 1.1em; color: #999">javascript</a> <a href="/tags/koa/" style="font-size: 1.1em; color: #999">koa</a> <a href="/tags/koa2/" style="font-size: 1.1em; color: #999">koa2</a> <a href="/tags/node/" style="font-size: 1.26em; color: #999fa8">node</a> <a href="/tags/vue/" style="font-size: 1.34em; color: #99a3b0">vue</a> <a href="/tags/vue-js/" style="font-size: 1.1em; color: #999">vue.js</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.42em; color: #99a6b7">前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.26em; color: #999fa8">工具</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 1.26em; color: #999fa8">工具使用</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 1.1em; color: #999">硬件</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">算法</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">脚本开发</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">October 2021</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/07/"><span class="card-archive-list-date">July 2018</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/05/"><span class="card-archive-list-date">May 2017</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">46</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-10-18T12:41:14.599Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By JINxo</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
