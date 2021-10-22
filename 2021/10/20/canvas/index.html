@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>canvas | Hexo</title><meta name="keywords" content="ES6"><meta name="author" content="JINxo"><meta name="copyright" content="JINxo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas">
+<meta property="og:url" content="http://example.com/2021/10/20/canvas/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="canvas">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-10-19T17:01:25.484Z">
+<meta property="article:modified_time" content="2021-10-19T17:01:25.484Z">
+<meta property="article:author" content="JINxo">
+<meta property="article:tag" content="ES6">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/20/canvas/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'canvas',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-10-20 01:01:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">48</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">canvas</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-19T17:01:25.484Z" title="Created 2021-10-20 01:01:25">2021-10-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-10-19T17:01:25.484Z" title="Updated 2021-10-20 01:01:25">2021-10-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ES6/">ES6</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="canvas"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>canvas</p>
+<span id="more"></span>
+
+<p>html5中添加的最受欢迎的功能就是<code>&lt;canvas&gt;</code> 元素，这个元素负责在页面中设定一个区域，然后可以通过js动态地在这个区域中绘制图形，<code>&lt;canvas&gt;</code> 由几组API构成，但不是所有浏览器都支持这些API,除了最具备最基本的绘图能力的2D上下文，还建议了一个WebGL的3D上下文，目前所有浏览器都支持2D上下文和以及文本API,但对WebGL的支持还不够好。</p>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>要使用<code>&lt;canvas&gt;</code>元素，必须先设置器width和height属性，指定可以绘图的区域大小，开始和结束标签内的内容是后备信息，如果浏览器不支持<code>&lt;canvas&gt;</code>元素，就会显示这些信息。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;drawing&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span>你的浏览器不支持canvas<span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>和其他元素一样，canvas元素所对应的DOM元素也有width和height元素，可以随意修改，也能通过CSS为该元素添加样式。如果不添加任何样式或者不绘制任何图形，在页面中是看不到这个元素的。</p>
+<p>要在这块画布上绘图，需要取得绘图上下文。而取得绘图上下文对象的引用，需要调用getContext()方法并传入上下文的名字。传入”2d”，就可以取得2D上下文。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">&quot;drawing&quot;</span>);</span><br><span class="line"><span class="comment">//确定浏览器支持canvas元素</span></span><br><span class="line"><span class="keyword">if</span>(drawing.getContext)&#123;</span><br><span class="line">    <span class="keyword">var</span> context = drawing.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在使用canvas元素之前，首先要检测getContext()方法是否存在，这一步非常重要，有些浏览器会为HTML规范外的元素创建默认的HTML元素对象，在这种情况下，即使drawing变量中保存者一个有效的元素引用，也检测不到getContext()方法。</p>
+<p>使用<code>toDataURL()</code>方法，可以到处在canvas元素上绘制图像，这个方法接受一个参数，即图像的MIME类型格式，而且使用与创建图像的任何上下文，比如取得画布中的一副PNG格式的图像，可以使用一下代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">&quot;drawing&quot;</span>);</span><br><span class="line"><span class="comment">//确定浏览器支持canvas元素</span></span><br><span class="line"><span class="keyword">if</span> (drawing.getContext) &#123;</span><br><span class="line">    <span class="comment">//取得图像的数据URI</span></span><br><span class="line">    <span class="keyword">var</span> imgURI = drawing.toDataURL(<span class="string">&quot;image/png&quot;</span>);</span><br><span class="line">    <span class="comment">//显示图像</span></span><br><span class="line">    <span class="keyword">var</span> image = <span class="built_in">document</span>.createElement(<span class="string">&quot;img&quot;</span>);</span><br><span class="line">    image.src = imgURI;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(image);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，浏览器会将图像编码为PNG格式（除非另行指定）。</p>
+<blockquote>
+<p>如果绘制到画布上的图像源自不同的域，toDataURL（）方法会抛出错误。</p>
+</blockquote>
+<h1 id="2D上下文"><a href="#2D上下文" class="headerlink" title="2D上下文"></a>2D上下文</h1><p>使用2D绘制上下文提供的方法，可以绘制简单的2D图形，比如矩形，弧线和路径，2D上下文的坐标开始于canvas元素的左上角，原点坐标是(0,0)。所有坐标值都是基于这个原点计算，x值远大表示越考右，y值越大越考下，默认情况下，width和height表示水平和垂直两个方向上可用的像素数目。</p>
+<h1 id="填充和描边"><a href="#填充和描边" class="headerlink" title="填充和描边"></a>填充和描边</h1><p>2D上下文的两种基本绘图操作是填充和描边，填充就是指定的样式（颜色，渐变或图像）填充图形图形；描边是在图形的边缘画线。大多数2D上下文操作都会细分为填充和描边两个操作。而这两个操作的结果取决于两个属性：fillStyle和strokeStyle。</p>
+<p>这两个属性的值可以是字符串，渐变对象或模式对象，而它们默认的值都是<code>#000000</code>,如果它们指定表示颜色的字符串值，可以使用CSS中指定颜色值的任何公式，包括颜色名，十六进制码，rgb,rgba,hsl或hsla。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">&quot;drawing&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> （drawing.getContext） &#123;</span><br><span class="line">    <span class="keyword">var</span> context = drawing.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">    context.strokeStyle = <span class="string">&quot;red&quot;</span>;</span><br><span class="line">    context.fillStyle = <span class="string">&quot;#0000ff&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h1><p>矩形是一种唯一可以直接在2D上下文中绘制的形状，与矩形有关的方法包括 <code>fillRect(),strokeRect(),clearRect()</code> ，这三个方法都能接受4个参数，矩形的x坐标和y坐标，矩形的宽度和高度，这些参数的单位都是像素。<br>首先，fillRect()方法在画布上绘制的矩形，会填充指定的颜色，填充的颜色通过fillStyle属性指定。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">&quot;drawing&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> （drawing.getContext） &#123;</span><br><span class="line">    <span class="keyword">var</span> context = drawing.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">    <span class="comment">//绘制红色矩阵</span></span><br><span class="line">    context.fillStyle = <span class="string">&quot;#ff0000&quot;</span>;</span><br><span class="line">    context.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">50</span>,<span class="number">50</span>);</span><br><span class="line">    <span class="comment">//绘制半透明的蓝色矩形</span></span><br><span class="line">    context.fillStyle = <span class="string">&quot;rgba(0,0,255,0.5)&quot;</span>;</span><br><span class="line">    context.fillRect(<span class="number">30</span>,<span class="number">30</span>,<span class="number">50</span>,<span class="number">50</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>fliiReact的前两个参数是矩形绘制的原点，后两个参数是宽高&gt;<br>strokeRect()方法可以为画布上绘制的矩形使用指定的颜色描边，描边颜色通过strokeStyle属性指定。</p>
+<blockquote>
+<p>描边线条的宽度由lineWidth属性控制，该属性的值可以是任意整数，另外通过lineCap属性可以控制线条末端的形状是平头，圆头和方头（butt,round,square）,通过lineJoin属性可以控制线条相交的方式是圆交，斜交，斜接（round,bevel,miter）</p>
+</blockquote>
+<p>最后clearRect()方法用于清楚画布上的矩形区域，本质上，这个方法可以把绘制上下文中的某一矩形 区域变透明，通过绘制形状然后再清除指定区域，就可以生成有意思的效果。例如把某个形状切掉一块。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">&quot;drawing&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> （drawing.getContext） &#123;</span><br><span class="line">    <span class="keyword">var</span> context = drawing.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">    <span class="comment">//绘制红色矩阵</span></span><br><span class="line">    context.fillStyle = <span class="string">&quot;#ff0000&quot;</span>;</span><br><span class="line">    context.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">50</span>,<span class="number">50</span>);</span><br><span class="line">    <span class="comment">//绘制半透明的蓝色矩形</span></span><br><span class="line">    context.fillStyle = <span class="string">&quot;rgba(0,0,255,0.5)&quot;</span>;</span><br><span class="line">    context.fillRect(<span class="number">30</span>,<span class="number">30</span>,<span class="number">50</span>,<span class="number">50</span>);</span><br><span class="line">	<span class="comment">//在两个矩形重叠的地方清除一个小小矩形、</span></span><br><span class="line">    context.clearRect(<span class="number">40</span>,<span class="number">40</span>,<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h1><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-fill.html">fill()</a></td>
+<td>填充当前绘图（路径）。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-stroke.html">stroke()</a></td>
+<td>绘制已定义的路径。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-beginpath.html">beginPath()</a></td>
+<td>起始一条路径，或重置当前路径。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-moveto.html">moveTo()</a></td>
+<td>把路径移动到画布中的指定点，不创建线条。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-closepath.html">closePath()</a></td>
+<td>创建从当前点回到起始点的路径。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-lineto.html">lineTo()</a></td>
+<td>添加一个新点，然后在画布中创建从该点到最后指定点的线条。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-clip.html">clip()</a></td>
+<td>从原始画布剪切任意形状和尺寸的区域。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-quadraticcurveto.html">quadraticCurveTo()</a></td>
+<td>创建二次贝塞尔曲线。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-beziercurveto.html">bezierCurveTo()</a></td>
+<td>创建三次贝塞尔曲线。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-arc.html">arc()</a></td>
+<td>创建弧/曲线（用于创建圆形或部分圆）。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-arcto.html">arcTo()</a></td>
+<td>创建两切线之间的弧/曲线。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-ispointinpath.html">isPointInPath()</a></td>
+<td>如果指定的点位于当前路径中，则返回 true，否则返回 false。</td>
+</tr>
+</tbody></table>
+<p>2D上下文支持很多在画布上绘制路径的方法，通过路径可以创造出复杂的形状和线条，要绘制路径，首先必须调用<code>beginPath</code>方法，表示要开始绘制新路劲，然后通过调用下列方法来实际地绘制路径。</p>
+<ul>
+<li>arc(x,y,rdius,startAngle,endAngle,counterclockwise):以(x,y)为圆心绘制一条弧线，弧线半径为radius，起始和结束角度为startAngle和endAngle，最后一个参数表示是否按逆时针方法进行计算，如果值为false，表示顺时针方向计算。</li>
+<li>arcTo(x1,y1,x2,y2,radius)：从上一点开始绘制一条弧线到(x2,y2)为止，并且以给定的半径radius穿过(x1,y1)</li>
+<li>bezierCurveTo(c1x,c1y,c2x,c2y,x,y):从上一点开始绘制一条曲线，到(x,y)为止，并且以(c1x,c1y)和(c2x,c2y)为控制点。</li>
+<li>lineTo(x,y)：从上一点开始绘制一条直线，到(x,y)为止。</li>
+<li>moveTo(x,y):将绘图游标移动到（x,y），不画线。</li>
+<li>quardraticCurveTo(cx,cy,x,y): 从上一点开始绘制一条二次曲线，直到(x,y)为止，并以(cx,cy)为控制点。</li>
+<li>rect(x,y,width,height):从点(x,y)开始绘制一个矩形，宽度和高度分别由width和height指定。这个方法绘制的是矩形路径，而不是strokeRect和fillRect所绘制的独立形状。</li>
+</ul>
+<p>创建了路径后，接下来有几种可能的选择，如果想绘制一条连接到路径起点的线条，可以调用closePath(),如果路径以及完成，你想要用fillStyle填充它，可以调用fill()方法，另外还可以调用stroke()方法对路径描边，描边使用的是strokeStyle。最后还可以调用clip(),这个方法可以在路径上创建一个剪切区域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">&quot;drawing&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> （drawing.getContext） &#123;</span><br><span class="line">    <span class="keyword">var</span> context = drawing.getContext(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line">    <span class="comment">//开始</span></span><br><span class="line">	context.beginPath();</span><br><span class="line">    <span class="comment">//操作</span></span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="comment">//结束</span></span><br><span class="line">    context.stroke()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有以名为<code>isPointInPath()</code>方法，这个方法接受x和y坐标，用于在路径被关闭前确定画布上的某一点是否位于路径上。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(context.isPointInpath(<span class="number">100</span>,<span class="number">100</span>)) &#123;</span><br><span class="line">    alert(<span class="string">&quot;Point(100,100) is in the path&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h1><p>文本与图像总是如影随行，为此，2D绘图上下文也提供了绘制文本的方法，绘制文本主要有两个方法:fliiText()和strokeText()。两个方法都可以接受4个参数：要绘制的文本字符串，x坐标,y坐标，可选的最大像素宽度。而且，这两个方法都可以是下列3个属性的基础。</p>
+<ul>
+<li>font:表示文本样式，大小及字体，用CSS中指定字体的格式来指定如”10px Arial”</li>
+<li>textAlign: 表示文本的对齐方式，可能的值有”start,end,left,right,center”。建议使用start和end,不要使用left和right，因为前两者的意思更稳妥，能同时适合从左到右和从右到左显示的语言。</li>
+<li>textBaseline:表示文本的基线，可能的取值有“top,hanging,middle,alphabetic,ideographic,bottom”</li>
+</ul>
+<p>这几个属性都有默认值，因此没有必要每次使用它们都重新设置一遍值。fillText()方法使用fillStyle属性绘制文本，而strokeText()方法使用strokeStyle属性为文本描边。相对来说，还是使用fillText()的时候更多，因为该方法模仿了在网页中正常显示文本。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">context.font = <span class="string">&quot;bold 14px Arial&quot;</span>;</span><br><span class="line">context.textAlign = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">context.textBaseline = <span class="string">&quot;middle&quot;</span>;</span><br><span class="line">context.fillText = (<span class="string">&quot;12&quot;</span>,<span class="number">100</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+<p>因为textAlign设置为center,textBaseline设置为middle。所以坐标(100,20)表示的是文本水平和垂直中点的坐标。如果将textAlign设置为start，则x坐标表示文本左端为止，设置为end表示文本右端为止。</p>
+<p><code>measureText()</code>利用font,textAlign和textBaseline的当前值计算指定文本的大小。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fontSize = <span class="number">100</span>;</span><br><span class="line">context.font = fontSize + <span class="string">&quot;px Arial&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(context.measureText(<span class="string">&quot;Hello world!&quot;</span>).width &gt; <span class="number">140</span> )&#123;</span><br><span class="line">    fontSize--;</span><br><span class="line">    context.font = fontSize + <span class="string">&quot;px Arial&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">context.fillText(<span class="string">&quot;Hello world!&quot;</span>,<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">context.fillText(<span class="string">&quot;Font size is&quot;</span> + fontSize + <span class="string">&quot;px&quot;</span>,<span class="number">10</span>,<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面实现了在一个140像素数的矩形区域中绘制文本Hello world!,下面的代码从100像素的字体大小开始递减，最终会找到一个合适的字体大小。</p>
+<h1 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h1><p>通过上下文的变换，可以把处理后的图像绘制到画布上，2D绘制上下文支持各种基本的绘制变换，创建上下文时，会以默认值初始化变换矩阵，在默认的变换矩阵下，所有处理都按描述直接绘制，为绘制上下文应用变换。会导致使用不同的变换矩阵应用处理，从而产生不同的结果。</p>
+<p>可以通过如下方法来修改变换矩阵。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-scale.html">scale()</a></td>
+<td>scale(<em>scalewidth,scaleheight</em>); 缩放当前绘图至更大或更小。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-rotate.html">rotate()</a></td>
+<td>旋转当前绘图。 实例：如需旋转 5 度，可规定下面的公式：5*Math.PI/180。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-translate.html">translate()</a></td>
+<td>重新映射画布上的 (0,0) 位置。 translate(x,y);</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-transform.html">transform()</a></td>
+<td>替换绘图的当前转换矩阵。 每当您调用 transform() 时，它都会在前一个变换矩阵上构建. <em>context</em>.transform(<em>a,b,c,d,e,f</em>);  允许您缩放、旋转、移动并倾斜当前的环境。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://www.runoob.com/tags/canvas-settransform.html">setTransform()</a></td>
+<td>将当前转换重置为单位矩阵。然后运行 transform()。 画布上的每个对象都拥有一个当前的变换矩阵。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>无论是变化，还是fillStyle等属性，都会在当前上下文中一直有效，除非再对上下文进行什么修改，虽然没有什么办法把上下文中的一切重置回默认值，但有两个方法可以跟踪上下文的状态变化，如果你知道将来还有返回某组属性与变换的组合，可以调用<code>save()</code>方法，调用这个方法后，当时的所有设置都会进入一个栈结构，得以妥善保存，然后可以对上下文进行其他修改，等想要回到之前保存的状态时，可以调用<code>restore()</code>方法，在保存设置的栈结构中向前返回一级，恢复之前的状态，连续调用save()可以把更多的设置保存到栈结构中，之后再连续调用restore()则可以以一级一级返回.</p>
+</blockquote>
+<p><code>save()</code>方法只保存对绘图上下文的设置和变换，不会保存绘图上下文的内容。</p>
+<h1 id="绘制图像"><a href="#绘制图像" class="headerlink" title="绘制图像"></a>绘制图像</h1><p>2D绘图上下内置了对图像的支持，如果你想把一副图像绘制到画布上，可以使用drawImage()方法，根据期望的最终结果不同，调用这个方法时，可以使用三种不同的参数组合，最简单的调用方式就是传入一个HTML <code>&lt;img&gt;</code> 元素，以及绘制改图像的起点的x和y坐标。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>];</span><br><span class="line">context.drawImage(imgae,<span class="number">10</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这两行代码取得文档中的第一幅图像，然后将他绘制到上下文中，起点为(10,10)。绘制到画布上的图像与原始大小一样，如果你想改变绘制图像的大小，可以在多传入两个参数，分别表示目标的宽度和高度。通过这种方式来缩放图像并不影响上下文的变换矩阵。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.drawImage(image,<span class="number">50</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这个代码会将绘制出来的图像大小变成20x30像素。</p>
+<p>出了上述两种方式，还可以选择把图像中的某个区域绘制到上下文中，drawImage()方法的这种调用方式总共需要传入9个参数.</p>
+<ul>
+<li>要绘制的图像</li>
+<li>源图像的x坐标，源图像的y坐标</li>
+<li>源图象的宽度</li>
+<li>源图象的高度</li>
+<li>目标图像的x坐标</li>
+<li>目标图像的y坐标</li>
+<li>目标图像的宽度</li>
+<li>目标图像的高度</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.drawImage(image,<span class="number">0</span>,<span class="number">10</span>,<span class="number">50</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">40</span>,<span class="number">60</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这行代码只会把原始图像的一部分绘制到画布上。原始图像的这一部分起点是(0,10),宽度和高度都是50像素，最终</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">JINxo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/20/canvas/">http://example.com/2021/10/20/canvas/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ES6/">ES6</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/20/element/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">element</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/20/Node%E8%B0%83%E8%AF%95/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Node调试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/10/20/ES2017%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" title="异步函数"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-20</div><div class="title">异步函数</div></div></a></div><div><a href="/2017/05/05/ES6today/" title="Reflect"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-05-05</div><div class="title">Reflect</div></div></a></div><div><a href="/2017/05/05/ES6today2/" title="Promise对象"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-05-05</div><div class="title">Promise对象</div></div></a></div><div><a href="/2017/05/05/ES6/" title="Proxy"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-05-05</div><div class="title">Proxy</div></div></a></div><div><a href="/2017/05/05/ES6%E4%B8%83/" title="数组扩展"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-05-05</div><div class="title">数组扩展</div></div></a></div><div><a href="/2021/10/20/ES6%E4%B8%89/" title="字符扩展"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-20</div><div class="title">字符扩展</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JINxo</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">48</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2D%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">2D上下文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A1%AB%E5%85%85%E5%92%8C%E6%8F%8F%E8%BE%B9"><span class="toc-number">3.</span> <span class="toc-text">填充和描边</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E7%9F%A9%E5%BD%A2"><span class="toc-number">4.</span> <span class="toc-text">绘制矩形</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%B7%AF%E5%BE%84"><span class="toc-number">5.</span> <span class="toc-text">绘制路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC"><span class="toc-number">6.</span> <span class="toc-text">绘制文本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E6%8D%A2"><span class="toc-number">7.</span> <span class="toc-text">变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%9B%BE%E5%83%8F"><span class="toc-number">8.</span> <span class="toc-text">绘制图像</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/10/20/%E5%85%B3%E4%BA%8ERPA/" title="No title"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2021/10/20/%E5%85%B3%E4%BA%8ERPA/" title="No title">No title</a><time datetime="2021-10-20T14:37:38.601Z" title="Created 2021-10-20 22:37:38">2021-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/20/%E9%95%BF%E4%B8%93%E6%B3%A8/" title="极其专注"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="极其专注"/></a><div class="content"><a class="title" href="/2021/10/20/%E9%95%BF%E4%B8%93%E6%B3%A8/" title="极其专注">极其专注</a><time datetime="2021-10-19T17:01:25.545Z" title="Created 2021-10-20 01:01:25">2021-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/20/%E7%B1%BB%E8%82%89%E9%B8%BD%E6%B8%B8%E6%88%8F%E8%87%AA%E5%8A%A8%E9%80%89%E6%8B%A9/" title="类肉鸽游戏自动选择"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="类肉鸽游戏自动选择"/></a><div class="content"><a class="title" href="/2021/10/20/%E7%B1%BB%E8%82%89%E9%B8%BD%E6%B8%B8%E6%88%8F%E8%87%AA%E5%8A%A8%E9%80%89%E6%8B%A9/" title="类肉鸽游戏自动选择">类肉鸽游戏自动选择</a><time datetime="2021-10-19T17:01:25.542Z" title="Created 2021-10-20 01:01:25">2021-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/20/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" title="箭头函数柯里化"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="箭头函数柯里化"/></a><div class="content"><a class="title" href="/2021/10/20/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" title="箭头函数柯里化">箭头函数柯里化</a><time datetime="2021-10-19T17:01:25.541Z" title="Created 2021-10-20 01:01:25">2021-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/20/%E6%9F%90%E9%9F%B3%E6%B8%B8%E8%B8%A9%E7%82%B9%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="-某音游踩点脚本开发"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="-某音游踩点脚本开发"/></a><div class="content"><a class="title" href="/2021/10/20/%E6%9F%90%E9%9F%B3%E6%B8%B8%E8%B8%A9%E7%82%B9%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="-某音游踩点脚本开发">-某音游踩点脚本开发</a><time datetime="2021-10-19T17:01:25.539Z" title="Created 2021-10-20 01:01:25">2021-10-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By JINxo</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
